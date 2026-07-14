@@ -1,42 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trances with Wolves Codex</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<style>
-:root{--black:#050607;--panel:#0c0d0f;--ivory:#e5dac7;--bone:#c9baa2;--muted:#9c8e79;--gold:#ad9162;--red:#5b1f27;--line:#504437}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--black);color:var(--ivory)}body{font-family:"Cormorant Garamond",Georgia,serif;overflow:hidden}button,input{font:inherit;color:inherit}.app{height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{z-index:4;background:linear-gradient(#090a0b,#050607);border-right:1px solid #3a322a;display:flex;flex-direction:column}.seal{width:130px;height:130px;border:1px solid #514536;border-radius:50%;margin:32px auto;display:grid;place-items:center;font-size:38px;color:var(--gold);background:#090a0b;cursor:pointer}.nav{display:grid}.nav button{min-height:78px;border:0;border-top:1px solid #312a24;background:#090a0c;text-align:left;padding:0 25px;font:500 19px Cinzel,serif;cursor:pointer}.nav button:last-child{border-bottom:1px solid #312a24}.nav button:hover{background:linear-gradient(90deg,rgba(91,31,39,.8),rgba(20,10,12,.8))}.nav span{color:var(--gold);display:inline-block;width:30px}.stage{position:relative;overflow:hidden}.view{position:absolute;inset:0;display:none}.view.active{display:block}.front{background:linear-gradient(0deg,rgba(2,3,4,.93),rgba(2,3,4,.04) 60%),url('assets/front-page.webp') center/cover no-repeat}.front:after{content:'';position:absolute;inset:14px;border:1px solid rgba(173,145,98,.35);pointer-events:none}.frontcopy{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:0 6vw 5vh;position:relative}.front h1{font-family:"Cinzel Decorative",Georgia,serif;font-size:clamp(44px,6vw,92px);line-height:.94;margin:0;text-shadow:0 5px 18px #000}.codex{font:500 clamp(24px,3vw,43px) Cinzel,serif;letter-spacing:.35em;color:#772b34;margin:12px 0 20px}.motto{font-size:clamp(23px,2.4vw,35px);font-style:italic;margin:0}.intro{width:min(750px,90%);border-top:1px solid rgba(173,145,98,.5);padding-top:20px;margin-top:24px;color:#b3a48d;font-size:19px}.panel{background:radial-gradient(circle at 30% 0,rgba(91,31,39,.12),transparent 30%),linear-gradient(#0c0d0f,#060708)}.top{height:70px;display:flex;align-items:center;gap:14px;padding:0 22px;border-bottom:1px solid #3b322a;background:#08090a}.top button{width:42px;height:42px;border:1px solid #594b3b;background:#090a0b;cursor:pointer}.crumb{font:500 14px Cinzel,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.close{margin-left:auto}.scroll{height:calc(100% - 70px);overflow:auto;padding:28px}.directory,.entry{max-width:1060px;margin:auto}.directory h2{font:500 40px Cinzel,serif;margin:0 0 6px}.directory>p{font-size:20px;color:var(--muted)}.rows{display:grid;gap:10px}.row,.tile{width:100%;border:1px solid #493e33;background:linear-gradient(90deg,#141518,#090a0b);text-align:left;cursor:pointer}.row{padding:18px 20px}.row:hover,.tile:hover{border-color:var(--gold);background:linear-gradient(90deg,#231519,#0b0c0d)}.row strong,.tile strong{display:block;font:500 20px Cinzel,serif}.row em,.tile em{display:block;color:var(--muted);margin-top:4px}.entry{border:1px solid #504437;background:#0d0e10}.hero{display:block;width:100%;max-height:430px;object-fit:cover;border-bottom:1px solid #4a4035}.hero.portrait{max-height:620px;object-fit:contain;background:#090a0b}.placeholder{height:220px;display:grid;place-items:center;border-bottom:1px solid #4a4035;color:#776c5f}.copy{padding:clamp(24px,4vw,50px)}.kicker{font:500 12px Cinzel,serif;color:var(--gold);letter-spacing:.2em;text-transform:uppercase}.copy h1{font:500 clamp(38px,5.6vw,70px) Cinzel,serif;line-height:.98;margin:10px 0 5px}.subtitle{font-size:23px;font-style:italic;color:#c6b399}.quote{font-size:24px;font-style:italic;border-left:3px solid var(--red);padding:12px 17px;margin:24px 0}.overview{white-space:pre-line;font-size:21px;line-height:1.72}.overview:first-letter{float:left;font:700 75px/.72 "Cinzel Decorative",serif;color:var(--gold);padding:15px 10px 0 0}.section{border-top:1px solid #3d342c;margin-top:34px;padding-top:22px}.section h2{font:500 25px Cinzel,serif}.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tile{min-height:90px;padding:15px}.searchbox{width:100%;padding:15px 17px;background:#070809;border:1px solid #594b3a;font-size:20px;outline:none}.searchbox:focus{border-color:var(--gold)}.empty{height:100%;display:grid;place-items:center;text-align:center}.empty h2{font:500 32px Cinzel,serif}.mobile{display:none}@media(max-width:850px){body{overflow:auto}.app{display:block}.sidebar{display:none}.stage{height:100vh}.mobile{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:8;grid-template-columns:repeat(4,1fr);background:#070809;border-top:1px solid #44392f}.mobile button{border:0;background:transparent;padding:9px 3px 12px;font:500 11px Cinzel,serif}.mobile span{display:block;color:var(--gold);font-size:19px}.frontcopy{padding-bottom:85px}.panel{padding-bottom:58px}.scroll{padding:14px}.tiles{grid-template-columns:1fr}}
-</style></head><body><div class="app"><aside class="sidebar"><button class="seal" onclick="Codex.home()">✦</button><nav class="nav"><button onclick="Codex.openPlaces()"><span>♜</span>Places</button><button onclick="Codex.empty('Factions')"><span>◈</span>Factions</button><button onclick="Codex.empty('History')"><span>▣</span>History</button><button onclick="Codex.openSearch()"><span>⌕</span>Search</button></nav></aside><main class="stage"><section id="front" class="view front active"><div class="frontcopy"><h1>TRANCES WITH WOLVES</h1><div class="codex">CODEX</div><p class="motto">The Mists whisper<br>to those who listen.</p><p class="intro">Beyond the Mists lie forgotten roads, abandoned halls, and names half-lost to memory. This codex preserves what your companions have uncovered, but Barovia never reveals all of its secrets at once.</p></div></section><section id="panel" class="view panel"><header class="top"><button onclick="Codex.back()">←</button><div id="crumb" class="crumb"></div><button class="close" onclick="Codex.home()">×</button></header><div id="scroll" class="scroll"></div></section><section id="search" class="view panel"><header class="top"><div class="crumb">Search the Codex</div><button class="close" onclick="Codex.home()">×</button></header><div class="scroll"><input id="query" class="searchbox" placeholder="Search a place or person…" oninput="Codex.search(this.value)"><div id="results" class="rows" style="margin-top:14px"></div></div></section></main><nav class="mobile"><button onclick="Codex.openPlaces()"><span>♜</span>Places</button><button onclick="Codex.empty('Factions')"><span>◈</span>Factions</button><button onclick="Codex.empty('History')"><span>▣</span>History</button><button onclick="Codex.openSearch()"><span>⌕</span>Search</button></nav></div>
-<script>
-const DATA={"settlements": {"village": {"name": "Village of Barovia", "subtitle": "Settlement beneath Castle Ravenloft", "image": "assets/village.webp", "overview": "The easternmost settlement in the valley lies beneath the looming shadow of Castle Ravenloft. When first encountered, the Village of Barovia is still bearing the fresh wounds of an undead siege. Barricades choke its narrow streets, frightened families shelter behind shuttered windows, and exhausted defenders cling to what little safety remains. Even before the dead began to gather, this was a place accustomed to grief; now every distant cry and footfall threatens another attack.", "locations": ["church", "tavern", "mansion"], "residents": ["ireena", "ismark", "donavich", "doru", "arik"]}}, "locations": {"church": {"name": "Church of Barovia", "subtitle": "A failing sanctuary", "image": "assets/church.webp", "settlement": "village", "overview": "A weathered church stands beyond the village houses, its age and neglect plain to see. Father Donavich keeps watch over the sanctuary, offering what comfort he can to a community beset by death. For those seeking prayer, counsel, or burial rites, it remains one of the village’s few sacred places.", "residents": ["donavich", "doru"]}, "tavern": {"name": "Blood of the Vine Tavern", "subtitle": "Tavern and gathering place", "image": null, "settlement": "village", "overview": "A dim, smoke-stained tavern near the centre of the village. Its warmth is meagre, but during the siege it offers company, news, and a brief refuge behind a closed door. Arik tends the bar in near silence while patrons keep one ear turned toward the street.", "residents": ["arik"]}, "mansion": {"name": "Burgomaster’s Mansion", "subtitle": "Residence of the burgomaster’s family", "image": null, "settlement": "village", "overview": "The burgomaster’s home bears the marks of repeated attack. Its doors and walls have been battered, and its rooms serve as both refuge and command post during the siege. Within, Ismark and Ireena carry the burdens left by their father’s death.", "residents": ["ireena", "ismark"]}}, "people": {"ireena": {"name": "Ireena Kolyana", "subtitle": "Noblewoman of the Village of Barovia", "image": "assets/ireena.webp", "location": "village", "quote": "Though the Mists hem her world, Ireena has never let them define her.", "overview": "To the people of the Village of Barovia, Ireena Kolyana is known as a compassionate, curious, yet quietly stubborn young noblewoman. Those fortunate enough to earn her trust discover someone more vulnerable beneath that composed exterior: an anxious, determined woman who dreams of a life beyond Barovia’s oppressive skies, where fear no longer governs each passing day.\n\nThe recent death of her father and the hardships endured by the village have demanded a strength few could summon. Rather than allowing grief to harden her, Ireena continues to meet others with kindness, believing understanding should always be sought before violence. When reason fails, however, she does not shrink from danger. Though she draws her rapier reluctantly in her own defence, she does so without hesitation to protect another.\n\nDespite the uncertainty surrounding her future, Ireena remains steadfast beside her brother, Ismark, sharing in the burden of safeguarding their home and the people who still look to them for hope.", "associates": ["ismark"]}, "ismark": {"name": "Ismark Kolyanovich", "subtitle": "Burgomaster of the Village of Barovia", "image": null, "location": "village", "overview": "Ismark is the son and successor of the late Burgomaster Kolyan Indirovich. Worn down by sleepless nights and the responsibility of defending the village, he remains direct, hospitable, and determined to protect those still in his care—most of all his sister, Ireena.", "associates": ["ireena"]}, "donavich": {"name": "Father Donavich", "subtitle": "Priest of the Village of Barovia", "image": null, "location": "church", "overview": "Father Donavich tends the village church and offers what aid he can to a community beset by death. He appears exhausted, his faith strained by private sorrow as well as the suffering beyond his doors. Even so, he continues to serve those who seek prayer, counsel, or a final resting place.", "associates": ["doru"]}, "doru": {"name": "Doru", "subtitle": "Son of Father Donavich", "image": null, "location": "church", "overview": "Doru is Father Donavich’s son, a young man whose return to the village has brought neither peace nor celebration. Whatever he endured has left him pale, troubled, and at war with himself. His father’s fear for him is plain.", "associates": ["donavich"]}, "arik": {"name": "Arik", "subtitle": "Barkeep of the Blood of the Vine", "image": null, "location": "tavern", "overview": "Arik keeps the Blood of the Vine Tavern with little conversation and less ceremony. He pours drinks, collects coin, and watches the room with the detached patience of a man long accustomed to Barovia’s misery.", "associates": []}}};
-window.Codex=(function(){
- 'use strict';
- const front=document.getElementById('front');
- const panel=document.getElementById('panel');
- const searchView=document.getElementById('search');
- const scroll=document.getElementById('scroll');
- const crumb=document.getElementById('crumb');
- const results=document.getElementById('results');
- const stack=[];
- function show(el){front.classList.remove('active');panel.classList.remove('active');searchView.classList.remove('active');el.classList.add('active')}
- function home(){stack.length=0;show(front)}
- function set(htmlText,crumbText){show(panel);crumb.textContent=crumbText;scroll.innerHTML=htmlText;scroll.scrollTop=0}
- function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
- function art(image,name,portrait){return image?'<img class="hero'+(portrait?' portrait':'')+'" src="'+esc(image)+'" alt="'+esc(name)+'">':'<div class="placeholder">Artwork not yet added</div>'}
- function row(name,sub,onclick){return '<button class="row" onclick="'+onclick+'"><strong>'+esc(name)+'</strong><em>'+esc(sub)+'</em></button>'}
- function tile(name,sub,onclick){return '<button class="tile" onclick="'+onclick+'"><strong>'+esc(name)+'</strong><em>'+esc(sub)+'</em></button>'}
- function push(v){stack.push(v);render(v)}
- function back(){if(stack.length>1){stack.pop();render(stack[stack.length-1])}else home()}
- function openPlaces(){stack.length=0;stack.push({type:'places'});render(stack[0])}
- function places(){let rows='';Object.entries(DATA.settlements).forEach(([id,s])=>rows+=row(s.name,s.subtitle,"Codex.openSettlement('"+id+"')"));set('<section class="directory"><h2>Places</h2><p>Settlements and landmarks known to the party.</p><div class="rows">'+rows+'</div></section>','Places')}
- function openSettlement(id){push({type:'settlement',id})}
- function settlement(id){const s=DATA.settlements[id];let locs='',people='';s.locations.forEach(x=>{const l=DATA.locations[x];locs+=tile(l.name,l.subtitle,"Codex.openLocation('"+x+"')")});s.residents.forEach(x=>{const p=DATA.people[x];people+=tile(p.name,p.subtitle,"Codex.openPerson('"+x+"')")});set('<article class="entry">'+art(s.image,s.name,false)+'<div class="copy"><div class="kicker">Settlement</div><h1>'+esc(s.name)+'</h1><div class="subtitle">'+esc(s.subtitle)+'</div><p class="overview">'+esc(s.overview)+'</p><section class="section"><h2>Known Locations</h2><div class="tiles">'+locs+'</div></section><section class="section"><h2>Known Residents</h2><div class="tiles">'+people+'</div></section></div></article>','Places  ›  '+s.name)}
- function openLocation(id){push({type:'location',id})}
- function location(id){const l=DATA.locations[id],s=DATA.settlements[l.settlement];let people='';l.residents.forEach(x=>{const p=DATA.people[x];people+=tile(p.name,p.subtitle,"Codex.openPerson('"+x+"')")});set('<article class="entry">'+art(l.image,l.name,false)+'<div class="copy"><div class="kicker">Location</div><h1>'+esc(l.name)+'</h1><div class="subtitle">'+esc(l.subtitle)+'</div><p class="overview">'+esc(l.overview)+'</p><section class="section"><h2>Known Residents</h2><div class="tiles">'+people+'</div></section></div></article>','Places  ›  '+s.name+'  ›  '+l.name)}
- function openPerson(id){push({type:'person',id})}
- function person(id){const p=DATA.people[id];let loc,settle;if(DATA.locations[p.location]){loc=DATA.locations[p.location];settle=DATA.settlements[loc.settlement]}else settle=DATA.settlements[p.location];let where=loc?tile(loc.name,settle.name,"Codex.openLocation('"+p.location+"')"):tile(settle.name,settle.subtitle,"Codex.openSettlement('"+p.location+"')");let assoc='';p.associates.forEach(x=>{const a=DATA.people[x];assoc+=tile(a.name,a.subtitle,"Codex.openPerson('"+x+"')")});let c='Places  ›  '+settle.name+(loc?'  ›  '+loc.name:'')+'  ›  '+p.name;set('<article class="entry">'+art(p.image,p.name,true)+'<div class="copy"><div class="kicker">Person</div><h1>'+esc(p.name)+'</h1><div class="subtitle">'+esc(p.subtitle)+'</div>'+(p.quote?'<blockquote class="quote">“'+esc(p.quote)+'”</blockquote>':'')+'<p class="overview">'+esc(p.overview)+'</p><section class="section"><h2>Known Location</h2><div class="tiles">'+where+'</div></section>'+(assoc?'<section class="section"><h2>Known Associates</h2><div class="tiles">'+assoc+'</div></section>':'')+'</div></article>',c)}
- function empty(title){stack.length=0;stack.push({type:'empty',title});render(stack[0])}
- function emptyView(title){set('<div class="empty"><div><h2>'+esc(title)+'</h2><p>Nothing has been recorded here yet.</p></div></div>',title)}
- function render(v){if(v.type==='places')places();else if(v.type==='settlement')settlement(v.id);else if(v.type==='location')location(v.id);else if(v.type==='person')person(v.id);else emptyView(v.title)}
- function openSearch(){show(searchView);document.getElementById('query').value='';results.innerHTML='';setTimeout(()=>document.getElementById('query').focus(),10)}
- function search(q){q=String(q||'').trim().toLowerCase();results.innerHTML='';if(!q)return;let out='';Object.entries(DATA.settlements).forEach(([id,x])=>{if((x.name+' '+x.subtitle+' '+x.overview).toLowerCase().includes(q))out+=row(x.name,'Settlement · '+x.subtitle,"Codex.jump('settlement','"+id+"')")});Object.entries(DATA.locations).forEach(([id,x])=>{if((x.name+' '+x.subtitle+' '+x.overview).toLowerCase().includes(q))out+=row(x.name,'Location · '+x.subtitle,"Codex.jump('location','"+id+"')")});Object.entries(DATA.people).forEach(([id,x])=>{if((x.name+' '+x.subtitle+' '+x.overview).toLowerCase().includes(q))out+=row(x.name,'Person · '+x.subtitle,"Codex.jump('person','"+id+"')")});results.innerHTML=out||'<p style="color:var(--muted)">The Mists conceal any matching record.</p>'}
- function jump(type,id){stack.length=0;stack.push({type:'places'},{type,id});render(stack[1])}
- return {home,back,openPlaces,openSettlement,openLocation,openPerson,empty,openSearch,search,jump};
-})();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060708">
+  <meta name="description" content="Player-facing companion codex for the Trances with Wolves campaign.">
+  <title>Trances with Wolves Codex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Primary navigation">
+    <button class="sigil" id="homeButton" type="button" aria-label="Return to front page">✦</button>
+    <nav class="main-nav">
+      <button id="placesButton" type="button"><span aria-hidden="true">♜</span>Places</button>
+      <button id="factionsButton" type="button"><span aria-hidden="true">◈</span>Factions</button>
+      <button id="historyButton" type="button"><span aria-hidden="true">▣</span>History</button>
+      <button id="searchButton" type="button"><span aria-hidden="true">⌕</span>Search</button>
+    </nav>
+    <p class="sidebar-motto">The Mists whisper<br>to those who listen.</p>
+  </aside>
+
+  <main class="stage">
+    <section id="homeView" class="view home-view active" aria-label="Codex front page">
+      <div class="home-shade"></div>
+      <div class="home-copy">
+        <div class="ornament" aria-hidden="true">✦</div>
+        <h1>TRANCES WITH WOLVES</h1>
+        <div class="codex-word">CODEX</div>
+        <p class="motto">The Mists whisper<br>to those who listen.</p>
+        <p class="intro">Beyond the Mists lie forgotten roads, abandoned halls, and names half-lost to memory. This codex preserves what your companions have uncovered, but Barovia never reveals all of its secrets at once.</p>
+      </div>
+    </section>
+
+    <section id="contentView" class="view content-view" aria-live="polite">
+      <header class="topbar">
+        <button id="backButton" class="icon-button" type="button" aria-label="Go back">←</button>
+        <div id="breadcrumbs" class="breadcrumbs"></div>
+        <button id="closeButton" class="icon-button" type="button" aria-label="Return to front page">×</button>
+      </header>
+      <div id="contentBody" class="content-body"></div>
+    </section>
+
+    <section id="searchView" class="view search-view" aria-live="polite">
+      <header class="topbar">
+        <div class="breadcrumbs">Search the Codex</div>
+        <button id="closeSearchButton" class="icon-button" type="button" aria-label="Return to front page">×</button>
+      </header>
+      <div class="search-wrap">
+        <label class="visually-hidden" for="searchInput">Search the codex</label>
+        <input id="searchInput" type="search" placeholder="Search a place or person…" autocomplete="off">
+        <div id="searchResults" class="directory-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button data-mobile="places" type="button"><span aria-hidden="true">♜</span>Places</button>
+    <button data-mobile="factions" type="button"><span aria-hidden="true">◈</span>Factions</button>
+    <button data-mobile="history" type="button"><span aria-hidden="true">▣</span>History</button>
+    <button data-mobile="search" type="button"><span aria-hidden="true">⌕</span>Search</button>
+  </nav>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

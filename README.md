@@ -1,3 +1,5 @@
 # Trances with Wolves Codex
 
-GitHub Pages-ready build. Upload `index.html`, `.nojekyll`, `README.md`, and the entire `assets` folder to the repository root.
+Static GitHub Pages build.
+
+Upload **all files and the assets folder** to the root of the repository. GitHub Pages should deploy from `main` and `/(root)`.
