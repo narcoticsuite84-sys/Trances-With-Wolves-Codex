@@ -23,6 +23,24 @@ window.CODEX_DATA = {
         "parriwimple",
         "mad-mary"
       ]
+    },
+    {
+      id: "river-ivlis-crossroads",
+      name: "River Ivlis Crossroads",
+      subtitle: "A lonely junction beneath the gallows",
+      image: "assets/river-ivlis-crossroads.webp",
+      overview: "River Ivlis Crossroads is a lonely junction where the Old Svalich Road divides beneath an aged wooden gallows. A weathered signpost directs travellers toward the Village of Barovia, Tser Pool, and the road to Ravenloft and Vallaki. Opposite the crossroads, a low crumbling wall encloses a small graveyard whose mist-shrouded graves are watched over by the silent gallows swaying in the mountain wind.",
+      locations: ["black-carriage"],
+      residents: ["strahd-von-zarovich"]
+    },
+    {
+      id: "tser-pool-encampment",
+      name: "Tser Pool Encampment",
+      subtitle: "A Vistani camp beside the water",
+      image: "assets/tser-pool-encampment.webp",
+      overview: "Tser Pool Encampment is a welcoming Vistani camp nestled beside the tranquil waters of Tser Pool. Colourful wagons circle crackling campfires beneath the shelter of ancient trees, where music, laughter, and the scent of home-cooked meals offer a rare warmth amidst the gloom of Barovia. Here, travellers are welcomed as honoured guests before being directed to the tent of the legendary seer, Madam Eva.",
+      locations: ["madam-evas-tent"],
+      residents: ["stanimir", "eliza", "arturi-radanavich", "madam-eva"]
     }
   ],
 
@@ -34,10 +52,7 @@ window.CODEX_DATA = {
       subtitle: "A failing sanctuary",
       image: "assets/church-of-barovia.webp",
       overview: "A weathered church stands beyond the village houses, its age and neglect plain to see. Father Donavich keeps watch over the sanctuary, offering what comfort he can to a community beset by death. For those seeking prayer, counsel, or burial rites, it remains one of the village’s few sacred places.",
-      residents: [
-        "father-donavich",
-        "doru"
-      ]
+      residents: ["father-donavich", "doru"]
     },
     {
       id: "blood-of-the-vine",
@@ -46,9 +61,7 @@ window.CODEX_DATA = {
       subtitle: "Tavern and gathering place",
       image: "assets/blood-of-the-vine.webp",
       overview: "A dim, smoke-stained tavern near the centre of the village. Its warmth is meagre, but during the siege it offers company, news, and a brief refuge behind a closed door. Arik tends the bar in near silence while patrons keep one ear turned toward the street.",
-      residents: [
-        "arik"
-      ]
+      residents: ["arik"]
     },
     {
       id: "burgomasters-mansion",
@@ -57,10 +70,7 @@ window.CODEX_DATA = {
       subtitle: "Residence of the burgomaster’s family",
       image: "assets/burgomasters-mansion.webp",
       overview: "The burgomaster’s home bears the marks of repeated attack. Its doors and walls have been battered, and its rooms serve as both refuge and command post during the siege. Within, Ismark and Ireena carry the burdens left by their father’s death.",
-      residents: [
-        "ireena-kolyana",
-        "ismark-kolyanovich"
-      ]
+      residents: ["ireena-kolyana", "ismark-kolyanovich"]
     },
     {
       id: "bildraths-mercantile",
@@ -69,10 +79,7 @@ window.CODEX_DATA = {
       subtitle: "General store",
       image: "",
       overview: "Bildrath’s Mercantile is the Village of Barovia’s general store, owned and operated by Bildrath Cantemir. Its shelves carry practical goods for travellers and villagers willing to meet the proprietor’s prices.",
-      residents: [
-        "bildrath-cantemir",
-        "parriwimple"
-      ]
+      residents: ["bildrath-cantemir", "parriwimple"]
     },
     {
       id: "mad-marys-townhouse",
@@ -81,8 +88,57 @@ window.CODEX_DATA = {
       subtitle: "Private residence",
       image: "",
       overview: "A modest townhouse belonging to Mad Mary, a distraught woman whose anguished cries can often be heard throughout the Village of Barovia.",
-      residents: [
-        "mad-mary"
+      residents: ["mad-mary"]
+    },
+    {
+      id: "black-carriage",
+      settlementId: "river-ivlis-crossroads",
+      name: "The Black Carriage",
+      subtitle: "An immaculate coach in the fog",
+      image: "assets/black-carriage.webp",
+      overview: "The Black Carriage is an immaculate coach of polished black wood, its enclosed cabin fitted with crystal glass windows and lit by ornate hanging lanterns that cast a warm glow through the Barovian mist. Drawn by a pair of silent black horses, it emerges from the fog upon the Old Svalich Road without warning.",
+      residents: ["strahd-von-zarovich"]
+    },
+    {
+      id: "madam-evas-tent",
+      settlementId: "tser-pool-encampment",
+      name: "Madam Eva’s Tent",
+      subtitle: "A pavilion of prophecy and Tarokka",
+      image: "assets/madam-evas-tent.webp",
+      overview: "Madam Eva’s Tent is a richly appointed pavilion that stands apart from the other Vistani wagons at Tser Pool Encampment. Illuminated by softly burning lanterns and heavy with the scent of incense, it is here that Madam Eva receives those who seek answers within the fortunes revealed by her Tarokka cards.",
+      residents: ["madam-eva"],
+      specialSections: [
+        {
+          type: "reading",
+          heading: "Tarokka Reading",
+          results: [
+            [
+              "This card tells of history. Knowledge of the ancient will help you better understand your enemy.",
+              "The Nine of Glyphs—the Traitor.",
+              "I see the ancient foe of an old and noble house. The lost soul will lead you to him."
+            ],
+            [
+              "This card tells of a powerful force for good and protection, a holy symbol of great hope.",
+              "The Five of Swords—the Myrmidon.",
+              "Look for a den of wolves in the hills overlooking a mountain lake. The treasure belongs to Mother Night."
+            ],
+            [
+              "This is a card of power and strength. It tells of a weapon of vengeance: a sword of sunlight.",
+              "The Eight of Glyphs—the Bishop.",
+              "What you seek lies in an amber prison, where the devil fears to tread. This weapon is long hidden. The house of the fallen dragon can lead you there."
+            ],
+            [
+              "This card sheds light on one who will help you greatly in the battle against darkness.",
+              "The Mists.",
+              "A Vistana wanders this land alone, searching for her mentor. She does not stay in one place for long. Seek her out at Saint Markovia’s abbey, near the mists."
+            ],
+            [
+              "Your enemy is a creature of darkness, whose powers are beyond mortality. When the hour of judgment arrives, this card will lead you to him!",
+              "The Marionette.",
+              "Look to great heights. Find the beating heart of the castle. He waits nearby."
+            ]
+          ]
+        }
       ]
     }
   ],
@@ -97,9 +153,7 @@ window.CODEX_DATA = {
       overview: "To the people of the Village of Barovia, Ireena Kolyana is known as a compassionate, curious, yet quietly stubborn young noblewoman. Those fortunate enough to earn her trust discover someone more vulnerable beneath that composed exterior: an anxious, determined woman who dreams of a life beyond Barovia’s oppressive skies, where fear no longer governs each passing day.\n\nThe recent death of her father and the hardships endured by the village have demanded a strength few could summon. Rather than allowing grief to harden her, Ireena continues to meet others with kindness, believing understanding should always be sought before violence. When reason fails, however, she does not shrink from danger. Though she draws her rapier reluctantly in her own defence, she does so without hesitation to protect another.\n\nDespite the uncertainty surrounding her future, Ireena remains steadfast beside her brother, Ismark, sharing in the burden of safeguarding their home and the people who still look to them for hope.",
       settlementId: "village-of-barovia",
       locationId: "burgomasters-mansion",
-      associates: [
-        "ismark-kolyanovich"
-      ],
+      associates: ["ismark-kolyanovich"],
       influence: "You helped bury her father, the late Burgomaster Kolyan Indirovich."
     },
     {
@@ -111,9 +165,7 @@ window.CODEX_DATA = {
       overview: "Ismark is the son and successor of the late Burgomaster Kolyan Indirovich. Worn down by sleepless nights and the responsibility of defending the village, he remains direct, hospitable, and determined to protect those still in his care—most of all his sister, Ireena.",
       settlementId: "village-of-barovia",
       locationId: "burgomasters-mansion",
-      associates: [
-        "ireena-kolyana"
-      ],
+      associates: ["ireena-kolyana"],
       influence: "You helped bury his father, the late Burgomaster Kolyan Indirovich."
     },
     {
@@ -125,9 +177,7 @@ window.CODEX_DATA = {
       overview: "To the world, Father Donavich is a grieving, yet zealous father. To those he trusts, Donavich is a broken man adrift in the world, lost and confused without guidance or purpose.\n\nIn a fight, Father Donavich would ordinarily fight to defend his people and his church. In his current state, however, he would immediately surrender, too wracked with guilt to even defend his own life.\n\nFather Donavich is Doru’s father and the priest of the Church of Barovia.",
       settlementId: "village-of-barovia",
       locationId: "church-of-barovia",
-      associates: [
-        "doru"
-      ],
+      associates: ["doru"],
       influence: ""
     },
     {
@@ -142,9 +192,7 @@ window.CODEX_DATA = {
       overview: "To the world, Doru is a monstrous, bloodthirsty vampire spawn. To those he trusts, Doru is a broken, guilt-ridden young man who is desperate to avoid harming those he loves.\n\nIn a fight, Doru would always seek to flee rather than risk hurting another creature. If Father Donavich or Gertruda were threatened, however, he would fight with savage determination to protect them.\n\nDoru is the son of Father Donavich, a former friend of Escher, and the betrothed of Gertruda.",
       settlementId: "village-of-barovia",
       locationId: "church-of-barovia",
-      associates: [
-        "father-donavich"
-      ],
+      associates: ["father-donavich"],
       influence: "You helped Doru overcome his blood lust. Your words later caused him to fear for Gertruda’s safety."
     },
     {
@@ -168,9 +216,7 @@ window.CODEX_DATA = {
       overview: "Bildrath Cantemir owns and operates Bildrath’s Mercantile, the Village of Barovia’s general store. He is Parriwimple’s uncle.",
       settlementId: "village-of-barovia",
       locationId: "bildraths-mercantile",
-      associates: [
-        "parriwimple"
-      ],
+      associates: ["parriwimple"],
       influence: ""
     },
     {
@@ -182,9 +228,7 @@ window.CODEX_DATA = {
       overview: "To the world, Parriwimple is a cheerful, simple-minded young man. To those he trusts, Parriwimple is a thoughtful, insightful, yet grieving orphan, desperate to move past his parents’ deaths by proving useful to others.\n\nIn a fight, Parriwimple would hold up his hands and plead for peace. If ignored, however, he would swiftly use his great strength to restrain any combatants—with righteous fury if defending his uncle, Bildrath Cantemir.\n\nParriwimple is an orphan and the nephew of the general store owner, Bildrath Cantemir.",
       settlementId: "village-of-barovia",
       locationId: "bildraths-mercantile",
-      associates: [
-        "bildrath-cantemir"
-      ],
+      associates: ["bildrath-cantemir"],
       influence: ""
     },
     {
@@ -197,6 +241,90 @@ window.CODEX_DATA = {
       settlementId: "village-of-barovia",
       locationId: "mad-marys-townhouse",
       associates: [],
+      influence: ""
+    },
+    {
+      id: "strahd-von-zarovich",
+      name: "Count Strahd von Zarovich",
+      subtitle: "Ruler of Barovia",
+      image: "assets/strahd-von-zarovich.webp",
+      quote: "You have taken your own measure, and I have found it wanting. You are not brave. You are not cunning. You invite death, and I have never been one to deny my subjects such a wish, no matter how foolish.",
+      overview: "To the world, Strahd von Zarovich is a tall, gaunt nobleman dressed in finery befitting a man of aristocratic, even royal, stature. A black cloak is draped neatly across his shoulders, fastened at the neck by a blood-red brooch, while a longsword hangs at his hip, its polished hilt gleaming beneath the dim light. His scarlet tunic is embroidered with intricate designs, and his dark hair is drawn back into a sharp, immaculate widow’s peak.\n\nHis pale, almost unnatural complexion and long, elegant claws lend him an unsettling presence, but it is his eyes that leave the deepest impression—dark, intelligent, and filled with a quiet, predatory hunger. As his gaze settles upon those before him, each feels weighed and measured with the detached curiosity of a hunter studying its prey.\n\nIn a fight, Strahd would welcome any challenge that served to demonstrate the futility of resistance and the inevitability of its outcome. Otherwise, he prefers to toy with his opponents, testing their resolve before withdrawing on his own terms.\n\nStrahd von Zarovich is the ruler of Barovia and master of Castle Ravenloft.",
+      settlementId: "river-ivlis-crossroads",
+      locationId: "black-carriage",
+      associates: [],
+      influence: "Laeth and Valendir’s behaviour and open disrespect toward Count Strahd nearly cost the entire party their lives, serving as a harsh reminder that Barovia’s ruler is neither a man to be mocked nor one to be underestimated."
+    },
+    {
+      id: "stanimir",
+      name: "Stanimir",
+      subtitle: "Elder of the Tser Pool Vistani",
+      image: "assets/tser-pool-vistani.webp",
+      quote: "",
+      overview: "To the world, Stanimir is a jovial, colourful old Vistana with a twinkle in his eye and a story always close to his lips. To those he trusts, Stanimir is a warm, perceptive, and quietly wise elder who delights in sharing tales around the campfire and extending genuine hospitality to travellers.\n\nIn a fight, Stanimir would seek to calm tensions through words before resorting to violence. If forced to defend his family or guests, however, he would stand his ground with quiet resolve.\n\nStanimir is an elder of the Tser Pool Vistani and is often the first to welcome travellers to the encampment before guiding them to Madam Eva.",
+      settlementId: "tser-pool-encampment",
+      locationId: "",
+      associates: ["eliza", "arturi-radanavich", "madam-eva"],
+      influence: "",
+      specialSections: [
+        {
+          type: "story",
+          heading: "Game of Stories",
+          title: "Stanimir’s Tale",
+          text: "Stanimir fills his mouth with wine, then spits into the fire. The flames turn from orange to green. As they dance and sway, a dark shape appears in the bonfire’s core.\n\n“We come from an ancient land whose name is long forgotten—a land of kings. Our enemies forced us from our homes, and now we wander the lost roads.”\n\nThe dark shape in the fire takes the form of a man being knocked from his horse, a spear piercing his side.\n\nStanimir continues. “One night, a wounded soldier staggered into our camp and collapsed. We nursed his terrible injury and quenched his thirst with wine. He survived. When we asked him who he was, he wouldn’t say. All he wanted was to return home, but we were deep in the land of his enemies. We took him as one of our own and followed him back toward his homeland. His enemies hunted him. They said he was a prince, yet we didn’t give him up, even when their assassins fell upon us like wolves.”\n\nDeep in the bonfire, you see the dark figure standing with sword drawn, fighting off a host of shadowy shapes.\n\n“This man of royal blood fought to protect us, as we protected him. We bore him safely to his home, and he thanked us. He said, ‘I owe you my life. Stay as long as you wish, leave when you choose, and know that you will always be safe here.’”\n\nThe figure in the dancing fire vanquishes its final foe, then disperses in a cloud of smoke and embers."
+        }
+      ]
+    },
+    {
+      id: "eliza",
+      name: "Eliza",
+      subtitle: "Host of the Tser Pool Encampment",
+      image: "assets/tser-pool-vistani.webp",
+      quote: "",
+      overview: "To the world, Eliza is a warm, welcoming, and attentive Vistana who delights in making travellers feel at home within the Tser Pool Encampment. To those she trusts, Eliza is observant, perceptive, and quietly inquisitive, possessing a natural curiosity about the lives and journeys of those she meets.\n\nIn a fight, Eliza would seek to avoid violence wherever possible. If there were no other choice, however, she would turn and flee rather than needlessly endanger herself.\n\nEliza is one of the Tser Pool Vistani and is often among the first to welcome travellers to the encampment, ensuring that every guest receives the hospitality for which her people are renowned.",
+      settlementId: "tser-pool-encampment",
+      locationId: "",
+      associates: ["stanimir", "arturi-radanavich", "madam-eva"],
+      influence: "",
+      specialSections: [
+        {
+          type: "story",
+          heading: "Game of Stories",
+          title: "Eliza’s Tale",
+          text: "“It is said that within each raven flutters a lost soul, and that each raven’s song tells a tale of ages past. They whisper, so listen closely.”\n\nShe takes a deep breath; when she speaks again, her voice is quiet, with an eerie, melodic quality to it.\n\n“Sing, ravens, of Barovia, birthed from the mists and bathed in twilight. Sing of Lugdana, the Morninglord’s stalwart, dawn-touched foe to the deep-lurking dark. The Holy Symbol of Ravenkind, her radiant testament, the warrior’s beacon of faithful resolve.\n\n“Sing, ravens, of Chernovog’s rise, named Green-God and Demon-Lord upon Yester Hill. Lugdana, gray-haired, weary of battle, her longsword and shield yet polished and ready. Guided through shadows, toward sacred ground, she clashed with the demon, their tempest-like dance.\n\n“Sing, ravens, of Lugdana’s last fury, of Ravenkind’s token now blazing with light. The battle’s tide turning, a hero’s brave cry, a final onslaught with divinity’s grace. The Demon-Lord banished, the warrior now fell, the wound at her side gouged too deep to bear.\n\n“Sing, ravens, of light’s final moments, a shadow descending from radiance on high. Sing of the angel, black-feathered and beaked, the Morninglord’s angel reclaiming its gift. The Symbol retaken, in ravens’ claws held.\n\n“Sing, ravens; you are the keepers, the watchers, the tellers of stories untold. Sing, ravens, of Lugdana’s memory, the shadows that lurk, and heroes to come.”"
+        }
+      ]
+    },
+    {
+      id: "arturi-radanavich",
+      name: "Arturi Radanavich",
+      subtitle: "A solitary Vistana",
+      image: "assets/tser-pool-vistani.webp",
+      quote: "",
+      overview: "To the world, Arturi is a quiet, soft-spoken man in his late thirties with a distant, almost absent-minded countenance and a near-painful sincerity. To those he trusts, Arturi is thoughtful, introspective, and burdened by an affliction that has led him to keep others at arm’s length despite his longing for companionship.\n\nIn a fight, Arturi would avoid violence wherever possible. If left with no other choice, however, he would fight with desperate resolve before retreating at the first opportunity.\n\nArturi is a Vistana who rarely visits the Tser Pool Encampment, preferring to keep his distance from family and friends alike. When he does return, he is quick to enquire after news from the Village of Barovia and any rumours concerning the monster hunter Rudolf van Richten before quietly taking part in the Game of Stories.",
+      settlementId: "tser-pool-encampment",
+      locationId: "",
+      associates: ["stanimir", "eliza"],
+      influence: "",
+      specialSections: [
+        {
+          type: "story",
+          heading: "Game of Stories",
+          title: "Arturi’s Tale",
+          text: "There once was a Fox, renowned for his wisdom and skill, who dwelled with his kit in the misted woods. On a cold, moonlit night, a pair of Sparrows brought him their child, the tendrils of Death clutching its shivering body. The Fox took the chick into his den, but for all his knowledge, he could not cure its ailment, and it breathed its last in his paws.\n\nDriven mad in their grief, the vengeful Sparrows, aided by four of their kin, stole the Fox’s kit in the night. They delivered him to the Wolf, who had long hungered for the taste of fox-flesh. The Wolf devoured the kit, and the Sparrows departed to return to their flock.\n\nWhen the Fox found what the Sparrows had done, rage clutched his own heart. In his cunning, he knew that the Rats, in their burrows beneath the earth, had always despised the songs of the Sparrows far above. The Fox descended to the kingdom of the Rats, and he promised them a forest free of the songs of the Sparrows. Intrigued, the Rats agreed.\n\nThe Rats could not find the Sparrows’ nest alone. But the crafty Fox could, and as the Sparrows slumbered in the hollow of a great oak, the Rats fell upon them to feast with tooth and claw. For the crimes of six, the flock perished, with nary an egg spared.\n\nThe misted wood is darkened, now, and the trees no longer sing with the songs of the Sparrows. But some say that the Rats hunt still—that a lone chick yet escaped their clutches, and that one day, they will find it, and gobble it up like the rest."
+        }
+      ]
+    },
+    {
+      id: "madam-eva",
+      name: "Madam Eva",
+      subtitle: "Seer of the Tser Pool Vistani",
+      image: "assets/madam-eva.webp",
+      quote: "This is the precipice you walk. There are many paths among the webs of Fate, but I can only see what may be—not what will. I can tell you what you must do, but I cannot ensure that you will succeed.",
+      overview: "To the world, Madam Eva appears as a wise, yet maddened crone who speaks in prophecies and riddles. To those she trusts, Madam Eva is a kind, compassionate, yet frustratingly opaque and stubborn old woman.\n\nIn a fight, Madam Eva would calmly insist that her opponent cease their attacks. If her Vistani aides prove unable to stop her assailant, however, she would weaken them with the harm spell before once again demanding their surrender.\n\nMadam Eva is the eldest of the Tser Pool Vistani and is revered throughout Barovia for her gift of foresight. Those who seek her counsel often leave with more questions than answers, yet few doubt the truth of her visions.",
+      settlementId: "tser-pool-encampment",
+      locationId: "madam-evas-tent",
+      associates: ["stanimir", "eliza", "arturi-radanavich"],
       influence: ""
     }
   ]

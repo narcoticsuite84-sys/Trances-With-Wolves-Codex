@@ -1,27 +1,388 @@
-(function(){
-"use strict";
-const D=window.CODEX_DATA;
-const homeView=document.getElementById("homeView"),contentView=document.getElementById("contentView"),searchView=document.getElementById("searchView"),contentBody=document.getElementById("contentBody"),breadcrumbs=document.getElementById("breadcrumbs"),searchInput=document.getElementById("searchInput"),searchResults=document.getElementById("searchResults"),stack=[];
-function show(v){[homeView,contentView,searchView].forEach(x=>x.classList.remove("active"));v.classList.add("active")}
-function home(){stack.length=0;show(homeView)}
-function settlement(id){return D.settlements.find(x=>x.id===id)}
-function location(id){return D.locations.find(x=>x.id===id)}
-function person(id){return D.people.find(x=>x.id===id)}
-function tile(t,s,fn){const b=document.createElement("button");b.className="tile-button";b.innerHTML="<strong>"+t+"</strong>"+(s?"<span>"+s+"</span>":"");b.onclick=fn;return b}
-function push(v){stack.push(v);render(v)}
-function back(){if(stack.length>1){stack.pop();render(stack.at(-1))}else home()}
-function art(src,name,portrait){return src?'<img class="entry-art'+(portrait?' portrait':'')+'" src="'+src+'" alt="'+name+'">':'<div class="placeholder">Artwork not yet added</div>'}
-function personArt(p){if(p.images?.length){return '<div class="appearance-block"><span>Appearance</span><div id="appearanceControls"></div></div><img id="appearanceImage" class="entry-art portrait" src="'+p.images[0].file+'" alt="'+p.name+' — '+p.images[0].label+'">'}return art(p.image,p.name,true)}
-function bindAppearance(p){if(!p.images?.length)return;const c=document.getElementById("appearanceControls"),img=document.getElementById("appearanceImage");p.images.forEach((x,i)=>{const b=document.createElement("button");b.className="appearance-button"+(i===0?" active":"");b.textContent=x.label;b.onclick=()=>{img.src=x.file;img.alt=p.name+" — "+x.label;c.querySelectorAll("button").forEach(q=>q.classList.remove("active"));b.classList.add("active")};c.appendChild(b)})}
-function influence(p){return p.influence?'<section class="entry-section influence-section"><h2>Your Influence</h2><p>'+p.influence+'</p></section>':""}
-function renderPlaces(){show(contentView);breadcrumbs.textContent="Places";contentBody.innerHTML='<section class="directory"><h2>Places</h2><p>Settlements and landmarks known to the party.</p><div class="directory-list" id="placeList"></div></section>';const list=document.getElementById("placeList");D.settlements.forEach(s=>{const b=document.createElement("button");b.className="directory-button";b.innerHTML="<strong>"+s.name+"</strong><span>"+s.subtitle+"</span>";b.onclick=()=>push({type:"settlement",id:s.id});list.appendChild(b)})}
-function renderSettlement(id){const s=settlement(id);show(contentView);breadcrumbs.textContent="Places › "+s.name;contentBody.innerHTML='<article class="entry">'+art(s.image,s.name,false)+'<div class="entry-copy"><div class="kicker">Settlement</div><h1>'+s.name+'</h1><div class="subtitle">'+s.subtitle+'</div><p class="overview">'+s.overview+'</p><section class="entry-section"><h2>Places of Interest</h2><div class="tile-grid" id="locations"></div></section><section class="entry-section"><h2>Notable Residents</h2><div class="tile-grid" id="residents"></div></section></div></article>';const lg=document.getElementById("locations");s.locations.map(location).filter(Boolean).forEach(l=>lg.appendChild(tile(l.name,l.subtitle,()=>push({type:"location",id:l.id}))));const rg=document.getElementById("residents");s.residents.map(person).filter(Boolean).forEach(p=>rg.appendChild(tile(p.name,p.subtitle,()=>push({type:"person",id:p.id}))))}
-function renderLocation(id){const l=location(id),s=settlement(l.settlementId);show(contentView);breadcrumbs.textContent="Places › "+s.name+" › "+l.name;contentBody.innerHTML='<article class="entry">'+art(l.image,l.name,false)+'<div class="entry-copy"><div class="kicker">Location</div><h1>'+l.name+'</h1><div class="subtitle">'+l.subtitle+'</div><p class="overview">'+l.overview+'</p><section class="entry-section"><h2>Known Residents</h2><div class="tile-grid" id="residents"></div></section></div></article>';const rg=document.getElementById("residents");l.residents.map(person).filter(Boolean).forEach(p=>rg.appendChild(tile(p.name,p.subtitle,()=>push({type:"person",id:p.id}))))}
-function renderPerson(id){const p=person(id),s=settlement(p.settlementId),l=location(p.locationId);show(contentView);breadcrumbs.textContent="Places › "+s.name+(l?" › "+l.name:"")+" › "+p.name;contentBody.innerHTML='<article class="entry">'+personArt(p)+'<div class="entry-copy"><div class="kicker">Person</div><h1>'+p.name+'</h1><div class="subtitle">'+p.subtitle+'</div>'+(p.quote?'<blockquote class="quote">“'+p.quote+'”</blockquote>':'')+'<p class="overview">'+p.overview+'</p><section class="entry-section"><h2>Known Location</h2><div class="tile-grid" id="knownLocation"></div></section>'+(p.associates.length?'<section class="entry-section"><h2>Known Associates</h2><div class="tile-grid" id="associates"></div></section>':'')+influence(p)+'</div></article>';bindAppearance(p);const kl=document.getElementById("knownLocation");kl.appendChild(l?tile(l.name,s.name,()=>push({type:"location",id:l.id})):tile(s.name,s.subtitle,()=>push({type:"settlement",id:s.id})));const ag=document.getElementById("associates");if(ag)p.associates.map(person).filter(Boolean).forEach(a=>ag.appendChild(tile(a.name,a.subtitle,()=>push({type:"person",id:a.id}))))}
-function empty(t){show(contentView);breadcrumbs.textContent=t;contentBody.innerHTML='<div class="empty"><div><h2>'+t+'</h2><p>Nothing has been recorded here yet.</p></div></div>'}
-function render(v){if(v.type==="places")renderPlaces();else if(v.type==="settlement")renderSettlement(v.id);else if(v.type==="location")renderLocation(v.id);else if(v.type==="person")renderPerson(v.id);else empty(v.title)}
-function openSearch(){show(searchView);searchInput.value="";searchResults.innerHTML="";setTimeout(()=>searchInput.focus(),50)}
-function search(){const q=searchInput.value.trim().toLowerCase();searchResults.innerHTML="";if(!q)return;const items=[];D.settlements.forEach(x=>{if((x.name+" "+x.subtitle+" "+x.overview).toLowerCase().includes(q))items.push({type:"settlement",item:x})});D.locations.forEach(x=>{if((x.name+" "+x.subtitle+" "+x.overview).toLowerCase().includes(q))items.push({type:"location",item:x})});D.people.forEach(x=>{if((x.name+" "+x.subtitle+" "+x.overview).toLowerCase().includes(q))items.push({type:"person",item:x})});items.forEach(m=>{const b=document.createElement("button");b.className="directory-button";b.innerHTML="<strong>"+m.item.name+"</strong><span>"+m.type+" · "+m.item.subtitle+"</span>";b.onclick=()=>{stack.length=0;stack.push({type:"places"},{type:m.type,id:m.item.id});render(stack.at(-1))};searchResults.appendChild(b)})}
-function action(a){if(a==="places"){stack.length=0;stack.push({type:"places"});renderPlaces()}else if(a==="factions"){stack.length=0;stack.push({type:"empty",title:"Factions"});empty("Factions")}else if(a==="history"){stack.length=0;stack.push({type:"empty",title:"History"});empty("History")}else openSearch()}
-document.getElementById("homeButton").onclick=home;document.getElementById("placesButton").onclick=()=>action("places");document.getElementById("factionsButton").onclick=()=>action("factions");document.getElementById("historyButton").onclick=()=>action("history");document.getElementById("searchButton").onclick=()=>action("search");document.getElementById("backButton").onclick=back;document.getElementById("closeButton").onclick=home;document.getElementById("closeSearchButton").onclick=home;searchInput.oninput=search;document.querySelectorAll("[data-mobile]").forEach(b=>b.onclick=()=>action(b.dataset.mobile));document.addEventListener("keydown",e=>{if(e.key==="Escape")home()});
+(function () {
+  "use strict";
+
+  const D = window.CODEX_DATA;
+  if (!D || !Array.isArray(D.settlements) || !Array.isArray(D.locations) || !Array.isArray(D.people)) {
+    throw new Error("CODEX_DATA is missing or invalid.");
+  }
+
+  const homeView = document.getElementById("homeView");
+  const contentView = document.getElementById("contentView");
+  const searchView = document.getElementById("searchView");
+  const contentBody = document.getElementById("contentBody");
+  const breadcrumbs = document.getElementById("breadcrumbs");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  const stack = [];
+
+  const settlement = id => D.settlements.find(item => item.id === id);
+  const location = id => D.locations.find(item => item.id === id);
+  const person = id => D.people.find(item => item.id === id);
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function show(view) {
+    [homeView, contentView, searchView].forEach(item => item.classList.remove("active"));
+    view.classList.add("active");
+    contentBody.scrollTop = 0;
+  }
+
+  function home() {
+    stack.length = 0;
+    show(homeView);
+  }
+
+  function push(view) {
+    stack.push(view);
+    render(view);
+  }
+
+  function back() {
+    if (stack.length > 1) {
+      stack.pop();
+      render(stack[stack.length - 1]);
+    } else {
+      home();
+    }
+  }
+
+  function tile(title, subtitle, onClick) {
+    const button = document.createElement("button");
+    button.className = "tile-button";
+    button.type = "button";
+    button.innerHTML = "<strong>" + escapeHtml(title) + "</strong>" +
+      (subtitle ? "<span>" + escapeHtml(subtitle) + "</span>" : "");
+    button.addEventListener("click", onClick);
+    return button;
+  }
+
+  function art(src, name, portrait = false) {
+    if (!src) {
+      return '<div class="art-placeholder">Artwork not yet added</div>';
+    }
+    return '<img class="entry-art' + (portrait ? ' portrait' : '') +
+      '" src="' + escapeHtml(src) + '" alt="' + escapeHtml(name) + '">';
+  }
+
+  function personArt(entry) {
+    if (Array.isArray(entry.images) && entry.images.length) {
+      const first = entry.images[0];
+      return '<div class="appearance-block">' +
+        '<span class="appearance-label">Appearance</span>' +
+        '<div id="appearanceControls" class="appearance-controls"></div>' +
+        '</div>' +
+        '<img id="appearanceImage" class="entry-art portrait" src="' +
+        escapeHtml(first.file) + '" alt="' +
+        escapeHtml(entry.name + " — " + first.label) + '">';
+    }
+    return art(entry.image, entry.name, true);
+  }
+
+  function bindAppearance(entry) {
+    if (!Array.isArray(entry.images) || !entry.images.length) return;
+    const controls = document.getElementById("appearanceControls");
+    const image = document.getElementById("appearanceImage");
+
+    entry.images.forEach((option, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "appearance-button" + (index === 0 ? " active" : "");
+      button.textContent = option.label;
+      button.addEventListener("click", () => {
+        image.src = option.file;
+        image.alt = entry.name + " — " + option.label;
+        controls.querySelectorAll(".appearance-button").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+      });
+      controls.appendChild(button);
+    });
+  }
+
+  function influenceMarkup(text) {
+    if (!text) return "";
+    return '<section class="entry-section influence-section">' +
+      '<h2>Your Influence</h2>' +
+      '<p>' + escapeHtml(text) + '</p>' +
+      '</section>';
+  }
+
+  function specialSectionsMarkup(sections) {
+    if (!Array.isArray(sections) || !sections.length) return "";
+
+    return sections.map(section => {
+      if (section.type === "story") {
+        return '<section class="entry-section special-section story-section">' +
+          '<h2>' + escapeHtml(section.heading || "Game of Stories") + '</h2>' +
+          (section.title ? '<h3>' + escapeHtml(section.title) + '</h3>' : '') +
+          '<div class="special-prose">' + escapeHtml(section.text).replaceAll("\n", "<br>") + '</div>' +
+          '</section>';
+      }
+
+      if (section.type === "reading") {
+        const results = (section.results || []).map(result =>
+          '<div class="reading-result">' +
+            '<p class="reading-introduction">“' + escapeHtml(result[0]) + '”</p>' +
+            '<p class="reading-card">' + escapeHtml(result[1]) + '</p>' +
+            '<p class="reading-prophecy">“' + escapeHtml(result[2]) + '”</p>' +
+          '</div>'
+        ).join("");
+
+        return '<section class="entry-section special-section reading-section">' +
+          '<h2>' + escapeHtml(section.heading || "Tarokka Reading") + '</h2>' +
+          results +
+          '</section>';
+      }
+
+      return "";
+    }).join("");
+  }
+
+  function renderPlaces() {
+    show(contentView);
+    breadcrumbs.textContent = "Places";
+    contentBody.innerHTML =
+      '<section class="directory">' +
+        '<h2>Places</h2>' +
+        '<p>Settlements and landmarks known to the party.</p>' +
+        '<div class="directory-list" id="placeList"></div>' +
+      '</section>';
+
+    const list = document.getElementById("placeList");
+    D.settlements.forEach(entry => {
+      const button = document.createElement("button");
+      button.className = "directory-button";
+      button.type = "button";
+      button.innerHTML = "<strong>" + escapeHtml(entry.name) + "</strong>" +
+        "<span>" + escapeHtml(entry.subtitle) + "</span>";
+      button.addEventListener("click", () => push({ type: "settlement", id: entry.id }));
+      list.appendChild(button);
+    });
+  }
+
+  function renderSettlement(id) {
+    const entry = settlement(id);
+    if (!entry) return renderError("Place not found.");
+
+    show(contentView);
+    breadcrumbs.textContent = "Places › " + entry.name;
+    contentBody.innerHTML =
+      '<article class="entry-page">' +
+        art(entry.image, entry.name) +
+        '<div class="entry-copy">' +
+          '<div class="entry-kicker">Place</div>' +
+          '<h1>' + escapeHtml(entry.name) + '</h1>' +
+          '<div class="entry-subtitle">' + escapeHtml(entry.subtitle) + '</div>' +
+          '<p class="entry-overview">' + escapeHtml(entry.overview) + '</p>' +
+          '<section class="entry-section">' +
+            '<h2>Places of Interest</h2>' +
+            '<div class="tile-grid" id="locations"></div>' +
+          '</section>' +
+          '<section class="entry-section">' +
+            '<h2>Notable People</h2>' +
+            '<div class="tile-grid" id="residents"></div>' +
+          '</section>' +
+        '</div>' +
+      '</article>';
+
+    const locations = document.getElementById("locations");
+    entry.locations.map(location).filter(Boolean).forEach(item => {
+      locations.appendChild(tile(item.name, item.subtitle, () => push({ type: "location", id: item.id })));
+    });
+
+    const residents = document.getElementById("residents");
+    entry.residents.map(person).filter(Boolean).forEach(item => {
+      residents.appendChild(tile(item.name, item.subtitle, () => push({ type: "person", id: item.id })));
+    });
+  }
+
+  function renderLocation(id) {
+    const entry = location(id);
+    if (!entry) return renderError("Location not found.");
+    const parent = settlement(entry.settlementId);
+
+    show(contentView);
+    breadcrumbs.textContent = "Places › " + parent.name + " › " + entry.name;
+    contentBody.innerHTML =
+      '<article class="entry-page">' +
+        art(entry.image, entry.name) +
+        '<div class="entry-copy">' +
+          '<div class="entry-kicker">Location</div>' +
+          '<h1>' + escapeHtml(entry.name) + '</h1>' +
+          '<div class="entry-subtitle">' + escapeHtml(entry.subtitle) + '</div>' +
+          '<p class="entry-overview">' + escapeHtml(entry.overview) + '</p>' +
+          '<section class="entry-section">' +
+            '<h2>Known People</h2>' +
+            '<div class="tile-grid" id="residents"></div>' +
+          '</section>' +
+          specialSectionsMarkup(entry.specialSections) +
+        '</div>' +
+      '</article>';
+
+    const residents = document.getElementById("residents");
+    entry.residents.map(person).filter(Boolean).forEach(item => {
+      residents.appendChild(tile(item.name, item.subtitle, () => push({ type: "person", id: item.id })));
+    });
+  }
+
+  function renderPerson(id) {
+    const entry = person(id);
+    if (!entry) return renderError("Person not found.");
+    const parent = settlement(entry.settlementId);
+    const knownLocation = entry.locationId ? location(entry.locationId) : null;
+
+    show(contentView);
+    breadcrumbs.textContent = "Places › " + parent.name +
+      (knownLocation ? " › " + knownLocation.name : "") + " › " + entry.name;
+
+    contentBody.innerHTML =
+      '<article class="entry-page">' +
+        personArt(entry) +
+        '<div class="entry-copy">' +
+          '<div class="entry-kicker">Person</div>' +
+          '<h1>' + escapeHtml(entry.name) + '</h1>' +
+          '<div class="entry-subtitle">' + escapeHtml(entry.subtitle) + '</div>' +
+          (entry.quote ? '<blockquote class="entry-quote">“' + escapeHtml(entry.quote) + '”</blockquote>' : '') +
+          '<p class="entry-overview">' + escapeHtml(entry.overview) + '</p>' +
+          specialSectionsMarkup(entry.specialSections) +
+          '<section class="entry-section">' +
+            '<h2>Known Location</h2>' +
+            '<div class="tile-grid" id="knownLocation"></div>' +
+          '</section>' +
+          ((entry.associates || []).length
+            ? '<section class="entry-section"><h2>Known Associates</h2><div class="tile-grid" id="associates"></div></section>'
+            : '') +
+          influenceMarkup(entry.influence) +
+        '</div>' +
+      '</article>';
+
+    bindAppearance(entry);
+
+    const knownLocationContainer = document.getElementById("knownLocation");
+    if (knownLocation) {
+      knownLocationContainer.appendChild(
+        tile(knownLocation.name, parent.name, () => push({ type: "location", id: knownLocation.id }))
+      );
+    } else {
+      knownLocationContainer.appendChild(
+        tile(parent.name, parent.subtitle, () => push({ type: "settlement", id: parent.id }))
+      );
+    }
+
+    const associates = document.getElementById("associates");
+    if (associates) {
+      entry.associates.map(person).filter(Boolean).forEach(item => {
+        associates.appendChild(tile(item.name, item.subtitle, () => push({ type: "person", id: item.id })));
+      });
+    }
+  }
+
+  function renderError(message) {
+    show(contentView);
+    breadcrumbs.textContent = "Codex";
+    contentBody.innerHTML =
+      '<div class="empty-state"><div><h2>Something went wrong</h2><p>' +
+      escapeHtml(message) + '</p></div></div>';
+  }
+
+  function empty(title) {
+    show(contentView);
+    breadcrumbs.textContent = title;
+    contentBody.innerHTML =
+      '<div class="empty-state"><div><h2>' + escapeHtml(title) +
+      '</h2><p>Nothing has been recorded here yet.</p></div></div>';
+  }
+
+  function render(view) {
+    if (view.type === "places") renderPlaces();
+    else if (view.type === "settlement") renderSettlement(view.id);
+    else if (view.type === "location") renderLocation(view.id);
+    else if (view.type === "person") renderPerson(view.id);
+    else if (view.type === "empty") empty(view.title);
+  }
+
+  function openSearch() {
+    show(searchView);
+    searchInput.value = "";
+    searchResults.innerHTML = "";
+    setTimeout(() => searchInput.focus(), 50);
+  }
+
+  function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    searchResults.innerHTML = "";
+    if (!query) return;
+
+    const matches = [];
+    D.settlements.forEach(item => {
+      if ((item.name + " " + item.subtitle + " " + item.overview).toLowerCase().includes(query)) {
+        matches.push({ type: "settlement", item });
+      }
+    });
+    D.locations.forEach(item => {
+      if ((item.name + " " + item.subtitle + " " + item.overview).toLowerCase().includes(query)) {
+        matches.push({ type: "location", item });
+      }
+    });
+    D.people.forEach(item => {
+      if ((item.name + " " + item.subtitle + " " + item.overview).toLowerCase().includes(query)) {
+        matches.push({ type: "person", item });
+      }
+    });
+
+    matches.forEach(match => {
+      const button = document.createElement("button");
+      button.className = "directory-button";
+      button.type = "button";
+      button.innerHTML = "<strong>" + escapeHtml(match.item.name) + "</strong>" +
+        "<span>" + escapeHtml(match.type + " · " + match.item.subtitle) + "</span>";
+      button.addEventListener("click", () => {
+        stack.length = 0;
+        stack.push({ type: "places" });
+        stack.push({ type: match.type, id: match.item.id });
+        render(stack[stack.length - 1]);
+      });
+      searchResults.appendChild(button);
+    });
+  }
+
+  function action(name) {
+    if (name === "places") {
+      stack.length = 0;
+      stack.push({ type: "places" });
+      renderPlaces();
+    } else if (name === "factions") {
+      stack.length = 0;
+      stack.push({ type: "empty", title: "Factions" });
+      empty("Factions");
+    } else if (name === "history") {
+      stack.length = 0;
+      stack.push({ type: "empty", title: "History" });
+      empty("History");
+    } else if (name === "search") {
+      openSearch();
+    }
+  }
+
+  document.getElementById("homeButton").addEventListener("click", home);
+  document.getElementById("placesButton").addEventListener("click", () => action("places"));
+  document.getElementById("factionsButton").addEventListener("click", () => action("factions"));
+  document.getElementById("historyButton").addEventListener("click", () => action("history"));
+  document.getElementById("searchButton").addEventListener("click", () => action("search"));
+  document.getElementById("backButton").addEventListener("click", back);
+  document.getElementById("closeButton").addEventListener("click", home);
+  document.getElementById("closeSearchButton").addEventListener("click", home);
+  searchInput.addEventListener("input", performSearch);
+  document.querySelectorAll("[data-mobile]").forEach(button => {
+    button.addEventListener("click", () => action(button.dataset.mobile));
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") home();
+  });
 })();
