@@ -1,6 +1,19 @@
 window.CODEX_DATA = {
   settlements: [
     {
+      id: "durst-manor",
+      name: "Durst Manor",
+      subtitle: "An imposing manor shrouded in fog",
+      image: "assets/durst-manor.webp",
+      overview: "A grand manor stands before you, four stories of cold, soot-stained stone, tall narrow windows, and high peaked roofs forming a picture of austere, chilling grandeur. Midway up, a narrow balcony juts out from the third floor, offering a grim perch from which to survey the surrounding grounds.\n\nThe centerpiece of this imposing façade is a stone portico standing sentinel before the house’s oaken doors. A wrought-iron gate fills the archway, its rusty hinges creaking softly as it sways in the wind.\n\nOn either side of the gate, oil lamps hang from iron chains, their dim, flickering light casting a sickly glow that barely pierces the surrounding fog.\n\nBeyond the gate stand sturdy oaken doors, weathered by time and darkened with age. Though old, they remain resolute—an unwelcoming threshold to the darkness within.\n\nA bitter gust of wind sweeps past, carrying with it a whisper of cold dread that sends shivers down your spine.",
+      locations: ["ritual-chamber"],
+      residents: ["gustav-durst", "elisabeth-durst", "klara", "rosavalda-rose-durst", "thornboldt-thorn-durst"],
+      influence: [
+        "You uncovered a mysterious Amber Shard hidden within the Master Suite.",
+        "Balwarin laid the children’s bones to rest, allowing their spirits to finally find peace."
+      ]
+    },
+    {
       id: "village-of-barovia",
       name: "Village of Barovia",
       subtitle: "Settlement beneath Castle Ravenloft",
@@ -140,7 +153,18 @@ window.CODEX_DATA = {
           ]
         }
       ]
+    },
+    {
+      id: "ritual-chamber",
+      settlementId: "durst-manor",
+      name: "The Ritual Chamber",
+      subtitle: "A flooded sanctuary beneath Durst Manor",
+      image: "assets/ritual-chamber.webp",
+      overview: "The smooth masonry walls of this forty-foot-square chamber provide excellent acoustics. Featureless stone pillars support the ceiling, while murky water covers most of the floor. Stone steps rise to narrow ledges that hug the walls.\n\nAt the centre of the room, another flight of steps ascends to an octagonal dais standing above the water. Rusty chains fitted with iron shackles dangle from the ceiling directly above a stone altar carved with hideous depictions of grasping ghouls and stained with the dark remains of dried blood.\n\nA small white bundle lies atop the altar, surrounded by pulsating fleshy tendrils.\n\nThe tendrils snake toward a breach in the far wall that opens into a dark cave, where their fleshy masses merge with a hulking shadow whose bloated form rises and falls in a slow, shuddering rhythm.\n\nAs soon as you step into the chamber, the ghostly chanting that has echoed through the depths abruptly falls silent.",
+      residents: ["elisabeth-durst"],
+      influence: ["You escaped the vengeful malice of Elisabeth Durst."]
     }
+
   ],
 
   people: [
@@ -326,6 +350,67 @@ window.CODEX_DATA = {
       locationId: "madam-evas-tent",
       associates: ["stanimir", "eliza", "arturi-radanavich"],
       influence: ""
+    },
+    {
+      id: "gustav-durst",
+      name: "Gustav Durst",
+      subtitle: "Patriarch of the Durst Family",
+      image: "assets/durst-family.webp",
+      quote: "Please. You have to stay here and die. She won’t accept anything else.",
+      overview: "Gustav Durst was the heir to House Durst, a wealthy merchant family whose agricultural enterprise helped found and expand much of Barovia’s farming industry. Though respected for his business acumen, rumours suggested that he had begun an affair with the family’s nursemaid, Klara, resulting in the birth of an illegitimate son, Walter. Whether true or not, the scandal fractured the Durst household, setting in motion the tragedy that would consume the family.",
+      settlementId: "durst-manor",
+      locationId: "",
+      associates: ["elisabeth-durst", "klara", "rosavalda-rose-durst", "thornboldt-thorn-durst"],
+      influence: ""
+    },
+    {
+      id: "elisabeth-durst",
+      name: "Elisabeth Durst",
+      subtitle: "Matriarch of the Durst Family",
+      image: "assets/durst-family.webp",
+      quote: "I will tear this house apart before I let you escape.",
+      overview: "Elisabeth Durst was the matriarch of House Durst, overseeing the family’s grand manor and playing host to lavish dinners and extravagant balls attended by Barovia’s nobility and merchant elite. Though rumours surrounded her husband Gustav and the family’s nursemaid, Klara, Elisabeth steadfastly dismissed them as malicious gossip. She ignored Klara’s steadily growing belly, the whispered glances between her and Gustav, and the hours they spent alone, convincing herself there was nothing to fear. Yet, for some reason, her stubborn denial gave way to suspicion, then jealousy and finally unbridled rage. Following Walter’s birth, Elisabeth murdered Gustav before turning her wrath upon Klara and her child. She prayed to Death that their souls be damned—and Death listened. Believing Strahd to be the source of her newfound power, Elisabeth gathered a fanatical cult devoted to him, luring unsuspecting outsiders to Durst Manor and offering countless sacrifices in pursuit of his favour. So consumed was Elisabeth by her delusion that she ignored the desperate pleas of her own children, locking Rose and Thorn away in the attic to be forgotten. Her sadistic acts ultimately proved her undoing when Strahd himself destroyed both Elisabeth and her followers after she unknowingly thwarted his own designs. Their spirits, however, lived on in that cursed manor.",
+      settlementId: "durst-manor",
+      locationId: "ritual-chamber",
+      associates: ["gustav-durst", "klara", "rosavalda-rose-durst", "thornboldt-thorn-durst"],
+      influence: ""
+    },
+    {
+      id: "klara",
+      name: "Klara",
+      subtitle: "Nursemaid of House Durst",
+      image: "",
+      quote: "",
+      overview: "Klara served House Durst as a humble and devoted nursemaid, showing Rose and Thorn the warmth and affection their own parents seldom did. When she became pregnant with Walter, Klara offered to temporarily step away from her duties and even arranged for another nursemaid to take her place, believing it would spare the family further conflict. Trusting in the compassion of those she had faithfully served for years, she never imagined the horror that awaited her. Elisabeth’s wrath would ultimately condemn Klara to a fate worse than death.",
+      settlementId: "durst-manor",
+      locationId: "",
+      associates: ["gustav-durst", "elisabeth-durst", "rosavalda-rose-durst", "thornboldt-thorn-durst"],
+      influence: ""
+    },
+    {
+      id: "rosavalda-rose-durst",
+      name: "Rosavalda \"Rose\" Durst",
+      subtitle: "Eldest Daughter of House Durst",
+      image: "assets/rose-and-thorn.webp",
+      quote: "",
+      overview: "To the world, Rose is Thorn’s fiercest protector, placing herself between her younger brother and any danger, no matter how frightened she may be. To those she trusts, she is a lost, fearful, and deeply traumatized young girl, desperately clinging to the only family she has left.\n\nIn a fight, Rose would always seek a peaceful resolution first, pleading with others to stop before violence begins. If that proved impossible, she would flee with Thorn rather than risk his safety.\n\nRose is Thorn Durst’s older sister, Walter Durst’s half-sister, and the eldest child of Elisabeth and Gustav Durst.",
+      settlementId: "durst-manor",
+      locationId: "",
+      associates: ["thornboldt-thorn-durst", "gustav-durst", "elisabeth-durst", "klara"],
+      influence: ""
+    },
+    {
+      id: "thornboldt-thorn-durst",
+      name: "Thornboldt \"Thorn\" Durst",
+      subtitle: "Youngest Son of House Durst",
+      image: "assets/rose-and-thorn.webp",
+      quote: "",
+      overview: "To the world, Thorn is a frightened young boy who clings to his sister. To those he trusts, Thorn is a quietly observant and surprisingly insightful child, often noticing the feelings of others before they do themselves.\n\nIn a fight, Thorn would cower and cry, pleading for Rose to rescue him.\n\nThorn is Rose Durst’s younger brother, Walter Durst’s half-brother, and the youngest child of Elisabeth and Gustav Durst.",
+      settlementId: "durst-manor",
+      locationId: "",
+      associates: ["rosavalda-rose-durst", "gustav-durst", "elisabeth-durst", "klara"],
+      influence: ""
     }
+
   ]
 };

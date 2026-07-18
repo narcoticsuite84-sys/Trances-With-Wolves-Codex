@@ -35,7 +35,7 @@ button,input{font:inherit}button{color:inherit}.visually-hidden{position:absolut
 
 .appearance-block{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid #493f35;background:#0b0c0d;font-family:"Cinzel",serif;color:var(--muted)}
 .appearance-controls{display:flex;gap:8px;flex-wrap:wrap}.appearance-button{border:1px solid #574a39;background:#090a0b;color:var(--bone);padding:8px 12px;cursor:pointer}.appearance-button:hover,.appearance-button.active{border-color:var(--gold);background:rgba(90,31,39,.55);color:var(--ivory)}
-.influence-section{border-top-color:rgba(122,42,53,.7)}.influence-section h2{color:#b75a64}.influence-section p{margin:0;padding:14px 17px;border-left:3px solid #7a2a35;background:rgba(91,31,39,.12);color:#c9878f;font-size:20px;line-height:1.55;font-style:italic}
+.influence-section{border-top-color:rgba(122,42,53,.7)}.influence-section h2{color:#b75a64}.influence-section p{margin:0;padding:14px 17px;border-left:3px solid #7a2a35;background:rgba(91,31,39,.12);color:#c9878f;font-size:20px;line-height:1.55;font-style:italic}.influence-section ul{margin:0;padding:14px 17px 14px 42px;border-left:3px solid #7a2a35;background:rgba(91,31,39,.12);color:#c9878f;font-size:20px;line-height:1.55;font-style:italic}.influence-section li+li{margin-top:6px}
 
 .special-section h3{font-family:"Cinzel",Georgia,serif;font-size:18px;font-weight:500;color:var(--gold-bright);margin:5px 0 18px}
 .special-prose{white-space:normal;color:#d9cdbb;font-size:20px;line-height:1.68;padding:18px;border:1px solid #463a30;background:rgba(8,9,10,.55)}

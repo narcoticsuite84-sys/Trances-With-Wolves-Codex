@@ -65,7 +65,7 @@
 
   function art(src, name, portrait = false) {
     if (!src) {
-      return '<div class="art-placeholder">Artwork not yet added</div>';
+      return '<div class="art-placeholder">Artwork lost to the Mists</div>';
     }
     return '<img class="entry-art' + (portrait ? ' portrait' : '') +
       '" src="' + escapeHtml(src) + '" alt="' + escapeHtml(name) + '">';
@@ -105,11 +105,16 @@
     });
   }
 
-  function influenceMarkup(text) {
-    if (!text) return "";
+  function influenceMarkup(value) {
+    if (!value || (Array.isArray(value) && !value.length)) return "";
+
+    const content = Array.isArray(value)
+      ? '<ul>' + value.map(item => '<li>' + escapeHtml(item) + '</li>').join("") + '</ul>'
+      : '<p>' + escapeHtml(value) + '</p>';
+
     return '<section class="entry-section influence-section">' +
       '<h2>Your Influence</h2>' +
-      '<p>' + escapeHtml(text) + '</p>' +
+      content +
       '</section>';
   }
 
@@ -188,6 +193,7 @@
             '<h2>Notable People</h2>' +
             '<div class="tile-grid" id="residents"></div>' +
           '</section>' +
+          influenceMarkup(entry.influence) +
         '</div>' +
       '</article>';
 
@@ -222,6 +228,7 @@
             '<div class="tile-grid" id="residents"></div>' +
           '</section>' +
           specialSectionsMarkup(entry.specialSections) +
+          influenceMarkup(entry.influence) +
         '</div>' +
       '</article>';
 
