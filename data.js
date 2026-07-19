@@ -55,6 +55,26 @@ window.CODEX_DATA = {
       locations: ["madam-evas-tent"],
       residents: ["stanimir", "eliza", "arturi-radanavich", "madam-eva"]
     }
+,
+    {
+      id: "tser-falls",
+      name: "Tser Falls",
+      subtitle: "A bridge above the roaring falls",
+      image: "assets/tser-falls.webp",
+      overview: "A dirt road clings to the mountainside before ending at an arching bridge of mould-encrusted stone that spans a vast natural chasm. Black moss shrouds the weatherworn gargoyles perched upon its corners, while a towering waterfall plunges into a mist-filled basin nearly a thousand feet below. From there, a winding river disappears into the fog-laden pine forests that blanket the valley. At the bridge’s midpoint, an undead knight clad in ancient armour stands motionless, both hands resting upon the pommel of a greatsword planted firmly into the stone beneath him.",
+      locations: [],
+      residents: ["nameless-revenant"]
+    },
+    {
+      id: "old-windmill",
+      name: "The Old Windmill",
+      subtitle: "A dilapidated mill upon a lonely hill",
+      image: "assets/old-windmill.webp",
+      overview: "A narrow branch in the road climbs west to a grassy promontory crowned by a dilapidated stone windmill. Its warped wooden vanes stand stripped bare, while the onion-domed structure leans precariously to one side as though recoiling from the storm-laden sky. Grey brick walls rise above dirt-stained windows, and a weathered wooden platform encircles the upper storeys. Below, a frail timber doorway offers passage into the ancient mill.",
+      locations: [],
+      residents: ["old-gran", "hag-coven"],
+      influence: ["With the aid of Victor Vallakovich and Lady Fiona Wachter, the party defeated the Nightmare Three, rescuing Myrtle and Fyodor while claiming two of the coven’s Heartstones."]
+    }
   ],
 
   locations: [
@@ -168,6 +188,48 @@ window.CODEX_DATA = {
   ],
 
   people: [
+    {
+      id: "nameless-revenant",
+      name: "Nameless Revenant",
+      subtitle: "Exiled Knight of the Order of the Silver Dragon",
+      image: "assets/nameless-revenant.webp",
+      quote: "Old things are stirring, and the lord of Castle Ravenloft roams the valley. Tell me: Do you serve him?",
+      overview: "Once a knight of the Order of the Silver Dragon, this nameless revenant was among a dozen of its brethren banished from the ruins of Argynvostholt following the failure of Doru’s rebellion three months ago.\n\nWhen word spread of Strahd’s planned counterstroke, the exiled knights pleaded with Vladimir Horngaard to let them stand beside their brothers once more and lend their swords to the coming battle. Vladimir refused. Fearing that vengeance would consume those he had sworn to lead, he cast the dissidents from Argynvostholt and forbade them from raising their blades against Strahd von Zarovich or any of his servants.",
+      settlementId: "tser-falls",
+      locationId: "",
+      associates: [],
+      influence: "Laeth presented the Silver Dragon pendant recovered from the ruins of an ancient watchtower. In response, the Nameless Revenant directed the party west to Argynvostholt, where Sir Godfrey Gwilym awaited those willing to raise their swords against the darkness."
+    },
+    {
+      id: "old-gran",
+      name: "Old Gran (Morgantha)",
+      subtitle: "Travelling seller of dream pastries",
+      images: [
+        { id: "old-gran", label: "Old Gran", file: "assets/old-gran.webp" },
+        { id: "morgantha", label: "Morgantha", file: "assets/morgantha.webp" }
+      ],
+      quote: "Oh! You do this weary old crone a service by pushing my cart. My poor back and feet do complain from time to time. I can't wait to soak them in a tub of nice, hot water once I'm home.",
+      overview: "To the world, Old Gran is a cheerful old woman with a fondness for gossip, gentle flattery, and lamenting the ordinary burdens of old age. She wanders the roads of Barovia selling her famous dream pastries, offering kind words and the occasional free sample to those she meets. Despite her advancing years, she travels the valley alone with surprising confidence, seemingly untroubled by the dangers that keep most folk behind locked doors after dusk.\n\nOnly Morgantha and her daughters know that beneath this kindly façade lies the black-hearted matron of the Nightmare Three, a coven of night hags that has preyed upon the people of Barovia for generations.",
+      settlementId: "old-windmill",
+      locationId: "",
+      associates: ["hag-coven"],
+      influence: ""
+    },
+    {
+      id: "hag-coven",
+      name: "Hag Coven",
+      subtitle: "The Nightmare Three",
+      images: [
+        { id: "disguised", label: "Disguised", file: "assets/hag-coven-disguised.webp" },
+        { id: "true-forms", label: "True Forms", file: "assets/hag-coven-true-forms.webp" }
+      ],
+      quote: "Children always fancy themselves heroes in their dreams. But dreams can so easily become nightmares—and nightmares are my bread and meat.",
+      overview: "Hidden behind the kindly façade of Old Gran, the Nightmare Three are a coven of night hags that has preyed upon the people of Barovia for generations. Morgantha, the coven’s ruthless matriarch, is joined by her daughters Bella Sunbane and Offalia Wormwiggle, whose mastery of nightmare magic allows them to torment the living while feeding upon misery, despair, and souls alike.\n\nThrough the sale of dream pastries, the sisters ensnared Barovia’s most desperate people, trading fleeting moments of bliss for addiction and ultimately their children. Within the walls of the Old Windmill, those stolen innocents became the final ingredient in the pastries that sustained both the coven’s power and its cruel livelihood.\n\nThe Nightmare Three preferred manipulation over bloodshed and attacked only when forced to defend themselves. Even then, each sister delighted in tormenting a different kind of victim. Bella fixated upon those she considered the most beautiful, Offalia sought to humble those who carried themselves with the greatest confidence, and Morgantha relished testing herself against the physically strongest foe. If more than one hag coveted the same quarry, the sisters would briefly bicker amongst themselves before one reluctantly turned her attention elsewhere.\n\nShould the battle turn against them, Morgantha would first attempt to negotiate for peace. Failing that, she abandoned her daughters without hesitation, slipping into the Ethereal Plane if escape remained possible.",
+      settlementId: "old-windmill",
+      locationId: "",
+      associates: ["old-gran"],
+      influence: ""
+    },
     {
       id: "ireena-kolyana",
       name: "Ireena Kolyana",
