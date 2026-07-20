@@ -74,7 +74,18 @@ window.CODEX_DATA = {
       locations: [],
       residents: ["old-gran", "hag-coven"],
       influence: ["With the aid of Victor Vallakovich and Lady Fiona Wachter, the party defeated the Nightmare Three, rescuing Myrtle and Fyodor while claiming two of the coven’s Heartstones."]
+    }    ,
+    {
+      id: "vallaki",
+      name: "Vallaki",
+      subtitle: "A sullen mountain burg beside Lake Zarovich",
+      image: "assets/vallaki.webp",
+      overview: "The woods recede, revealing a sullen mountain burg surrounded by a wooden palisade. Thick fog presses against its weathered walls, as though searching for a way inside, waiting patiently to catch the town asleep.\n\nThe dirt road ends at a pair of sturdy iron gates, where two shadowy guards stand watch behind the bars. Flanking the road outside the gates, a half-dozen pikes bear the severed heads of wolves, their empty eyes serving as a grim warning to any creature that prowls the Svalich Woods.\n\nMore than a dozen ramshackle tents have been erected against the palisade wall. Among them, dozens of ragged, emaciated people mill about or huddle beside low-burning campfires and worn bedrolls, their hollow gazes silently following your approach.\n\nNestled along the shores of Lake Zarovich, the town of Vallaki seems like a safe haven against the evils of the Svalich Woods.",
+      locations: ["arasek-stockyard", "blue-water-inn"],
+      residents: ["gunther-yelena-arasek", "rudolf-van-richten", "arabelle", "danika-dorakova", "urwin-martikov", "brom-bray-martikov", "rictavio", "nikolai-karl-wachter"],
+      influence: "With the party's aid, Lady Fiona Wachter has secretly seized control of Vallaki, becoming its new Burgomistress."
     }
+
   ],
 
   locations: [
@@ -183,7 +194,31 @@ window.CODEX_DATA = {
       overview: "The smooth masonry walls of this forty-foot-square chamber provide excellent acoustics. Featureless stone pillars support the ceiling, while murky water covers most of the floor. Stone steps rise to narrow ledges that hug the walls.\n\nAt the centre of the room, another flight of steps ascends to an octagonal dais standing above the water. Rusty chains fitted with iron shackles dangle from the ceiling directly above a stone altar carved with hideous depictions of grasping ghouls and stained with the dark remains of dried blood.\n\nA small white bundle lies atop the altar, surrounded by pulsating fleshy tendrils.\n\nThe tendrils snake toward a breach in the far wall that opens into a dark cave, where their fleshy masses merge with a hulking shadow whose bloated form rises and falls in a slow, shuddering rhythm.\n\nAs soon as you step into the chamber, the ghostly chanting that has echoed through the depths abruptly falls silent.",
       residents: ["elisabeth-durst"],
       influence: ["You escaped the vengeful malice of Elisabeth Durst."]
+    }    ,
+    {
+      id: "arasek-stockyard",
+      settlementId: "vallaki",
+      name: "Arasek Stockyard",
+      subtitle: "Vallaki's dependable stockyard and general store",
+      image: "assets/arasek-stockyard.webp",
+      overview: "This large stockyard contains several locked sheds along its perimeter and lies adjacent to a roomy warehouse. A wooden sign above the front gate reads, \"Arasek Stockyard.\"\n\nParked at the southern end of the yard is a sturdy carnival wagon. Its colourful paint is faded and peeling, save for a sign on its side that reads, \"Rictavio's Carnival of Wonders,\" which appears brand new and freshly painted. A heavy padlock secures the rear door.",
+      residents: ["gunther-yelena-arasek", "rudolf-van-richten", "arabelle"],
+      influence: "Following a trail of clues, the party tracked down the missing Vistana, Arabelle, who was being kept hidden within the wagon under Rudolf van Richten's protection."
+    },
+    {
+      id: "blue-water-inn",
+      settlementId: "vallaki",
+      name: "Blue Water Inn",
+      subtitle: "Vallaki's primary gathering place",
+      images: [
+        { id: "exterior", label: "Exterior", file: "assets/blue-water-inn-exterior.webp" },
+        { id: "taproom", label: "Taproom Interior", file: "assets/blue-water-inn-interior.webp" }
+      ],
+      overview: "Grey smoke rises from the chimney of this large, two-storey wooden inn with a stone foundation and sagging tiled roof, upon which several ravens perch. A painted wooden sign above the entrance depicts a blue waterfall.\n\nThe Blue Water Inn is Vallaki's primary gathering place and a welcome sanctuary from the hardships of Barovia. Damp cloaks hang from pegs beneath the entrance portico as locals gather around sturdy wooden tables, sharing mugs of wine and bowls of hearty stew beneath the warm glow of lantern light. Mounted wolf heads decorate the walls, while heavy shutters and crossbars reinforce every window.\n\nLively laughter frequently echoes through the tavern as a flamboyantly dressed Half-Elven Bard captivates patrons with animated stories and theatrical performances.",
+      residents: ["danika-dorakova", "urwin-martikov", "brom-bray-martikov", "rictavio", "nikolai-karl-wachter"],
+      influence: "The party uncovered the true identity of the flamboyantly dressed Half-Elven Bard, revealing him to be the legendary vampire hunter, Rudolf van Richten."
     }
+
 
   ],
 
@@ -471,6 +506,104 @@ window.CODEX_DATA = {
       settlementId: "durst-manor",
       locationId: "",
       associates: ["rosavalda-rose-durst", "gustav-durst", "elisabeth-durst", "klara"],
+      influence: ""
+    }
+    ,
+    {
+      id: "gunther-yelena-arasek",
+      name: "Gunther & Yelena Arasek",
+      subtitle: "Proprietors of Arasek Stockyard",
+      image: "",
+      quote: "",
+      overview: "Gunther and Yelena Arasek are a middle-aged married couple who own and operate Arasek Stockyard. Together they sell a wide range of general goods, tools, supplies, and equipment to the people of Vallaki, making their stockyard one of the settlement's most dependable merchants.",
+      settlementId: "vallaki",
+      locationId: "arasek-stockyard",
+      associates: [],
+      influence: ""
+    },
+    {
+      id: "rudolf-van-richten",
+      name: "Rudolf van Richten",
+      subtitle: "The Legendary Monster Hunter",
+      image: "assets/rudolf-van-richten.webp",
+      quote: "I failed to guard a child once, I shall not make that mistake again.",
+      overview: "To the world, Van Richten is a merciless, battle-hardened monster hunter. To those he trusts, he is a compassionate mentor with exceedingly high standards, a hefty paranoid streak, and an occasional temper. Only Van Richten knows the depths of the guilt, shame, and self-loathing he carries.\n\nIn a fight, Van Richten relies on preparation and cunning over brute force. He seeks to outwit or outmanoeuvre his foes, retreating when necessary to secure the most advantageous position before striking.\n\nVan Richten is the father of the late Erasmus van Richten. He is the former owner of the monkey Piccolo and was once an ally of Doru's rebellion against Castle Ravenloft.",
+      settlementId: "vallaki",
+      locationId: "arasek-stockyard",
+      associates: ["arabelle"],
+      influence: "The party successfully brokered an agreement that satisfied both Arabelle's family and Van Richten's desire to protect the young Vistana."
+    },
+    {
+      id: "arabelle",
+      name: "Arabelle",
+      subtitle: "The Gifted Vistani Child",
+      image: "assets/arabelle.webp",
+      quote: "Sometimes the cards tell us what we wish to know. Sometimes they tell us what we need to hear.",
+      overview: "Arabelle is a young Vistani girl who carries a well-loved plush sabre-toothed tiger and wears a beaded necklace adorned with a carved copper amulet. The daughter of Luvash and the niece of Arrigal, she possesses a wisdom and composure beyond her years.\n\nGifted with fleeting premonitions, Arabelle occasionally glimpses fragments of what is yet to come. Through these visions she guided the party to her location, leaving behind a trail of clues—including a Tarokka card, a bracelet, a handkerchief, and a ring—for them to follow. Though her foresight is imperfect, it is remarkable enough to earn the respect of those who recognise its significance.",
+      settlementId: "vallaki",
+      locationId: "arasek-stockyard",
+      associates: ["rudolf-van-richten"],
+      influence: "",
+      specialSections: [{ type: "story", heading: "Arabelle's Prophecy", text: "In darkest night, the light shall flee,\nNo dawn to break, with no reprieve.\nFrom the grave, the dead shall climb,\nTheir restless march a baleful sign.\n\nAt castle's peak, a heart beats red,\nIts hunger deep and ever-fed.\nShould silence fall, the skies shall crack,\nA thousand souls in torment black." }]
+    },
+    {
+      id: "danika-dorakova",
+      name: "Danika Dorakova",
+      subtitle: "The Brains of the Blue Water Inn",
+      image: "assets/inn-martikovs.webp",
+      quote: "Don't you dare plot to rent the rooms for free again! That husband o' mine would bankrupt the inn with generosity if I wasn't here to keep the books.",
+      overview: "To the world, Danika is a practical, no-nonsense businesswoman with a heart of gold. To those she trusts, Danika is a fiercely protective mother with an unwavering dedication to her family. Only Danika herself knows she is grimly prepared to defend those she loves—at any cost.\n\nTogether with her husband, Urwin, Danika owns and operates the Blue Water Inn, where they have raised their sons, Brom and Bray.",
+      settlementId: "vallaki",
+      locationId: "blue-water-inn",
+      associates: ["urwin-martikov", "brom-bray-martikov"],
+      influence: ""
+    },
+    {
+      id: "urwin-martikov",
+      name: "Urwin Martikov",
+      subtitle: "The Heart of the Blue Water Inn",
+      image: "assets/inn-martikovs.webp",
+      quote: "A McMuffin? That's an odd name for that, but I can easily add it to the breakfast menu.",
+      overview: "To the world, Urwin is a kind, fatherly figure, devoted family man, and welcoming host with an ever-present twinkle in his eye. To those he trusts, Urwin is quietly resourceful and dependable, rarely missing the small details that others overlook.\n\nHe has a habit of keeping a watchful eye on those who pass through the Blue Water Inn, always ready with a listening ear, a warm meal, or a helping hand. Deep down, Urwin fears for his sons' futures in a realm ruled by Strahd.\n\nTogether with his wife, Danika, Urwin owns and operates the Blue Water Inn, where they have raised their sons, Brom and Bray.",
+      settlementId: "vallaki",
+      locationId: "blue-water-inn",
+      associates: ["danika-dorakova", "brom-bray-martikov"],
+      influence: ""
+    },
+    {
+      id: "brom-bray-martikov",
+      name: "Brom & Bray Martikov",
+      subtitle: "The Blue Water's Little Rascals",
+      image: "assets/inn-martikovs.webp",
+      quote: "I swear I'm not lying! There was a giant spider in my room!",
+      overview: "Brom and Bray are the spirited sons of Urwin and Danika Martikov. At eleven and nine years old respectively, the brothers are inseparable, spending their days inventing games, getting into harmless mischief, and finding new ways to test their parents' patience. Few afternoons pass without one of them being reminded not to run through the taproom, climb onto the furniture, or get underfoot while the inn is busy.\n\nNaturally curious, the boys are fascinated by the travellers who pass through the Blue Water Inn. Whether peeking around corners, lingering a little too long near the common room, or asking one question too many, Brom and Bray rarely miss an interesting story before being ushered back to their chores.\n\nDespite their antics, the brothers possess kind hearts and boundless enthusiasm, bringing laughter and life to the Blue Water Inn even on Barovia's darkest days.",
+      settlementId: "vallaki",
+      locationId: "blue-water-inn",
+      associates: ["danika-dorakova", "urwin-martikov"],
+      influence: ""
+    },
+    {
+      id: "rictavio",
+      name: "Rictavio",
+      subtitle: "The Travelling Ringmaster",
+      image: "assets/rictavio.webp",
+      quote: "The good innkeepers have generously let me stay in exchange for tales and good humour.",
+      overview: "To the world, Rictavio appears as a flamboyant, irreverent, and occasionally narcissistic travelling carnival ringmaster. With an endless supply of stories, exaggerated boasts, and theatrical charm, he quickly becomes the centre of attention wherever he goes.\n\nWhen danger arises, Rictavio is quick to rely on his wit and silver tongue, preferring to talk his way out of trouble before quietly slipping away if violence seems inevitable. Yet beneath the colourful façade lies a surprising courage, for he cannot easily ignore innocent folk threatened by the horrors that stalk Barovia—even if doing so risks revealing more than he would like.",
+      settlementId: "vallaki",
+      locationId: "blue-water-inn",
+      associates: [],
+      influence: ""
+    },
+    {
+      id: "nikolai-karl-wachter",
+      name: "Nikolai & Karl Wachter",
+      subtitle: "The Wachter Brothers",
+      image: "assets/wachter-brothers.webp",
+      quote: "Purple Grapemash No. 3? What do you take us for—tasteless peasants? Red Dragon Crush, and don't be stingy.",
+      overview: "Nikolai and Karl Wachter are the young sons of Lady Fiona Wachter. Idle, carefree, and rarely seen without a mug of Red Dragon Crush in hand, the brothers spend much of their time drinking, gambling, and searching for amusement at the Blue Water Inn.\n\nOpenly dismissive of Baron Vargas Vallakovich and his endless festivals, the brothers are quick to ridicule the burgomaster's attempts to force happiness upon Vallaki. Though loud, boastful, and prone to poor decisions, they are more immature than malicious, and the inn's regular patrons have long since learned to take their antics in stride.",
+      settlementId: "vallaki",
+      locationId: "blue-water-inn",
+      associates: [],
       influence: ""
     }
 

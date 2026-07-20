@@ -71,19 +71,22 @@
       '" src="' + escapeHtml(src) + '" alt="' + escapeHtml(name) + '">';
   }
 
-  function personArt(entry) {
+  function selectableArt(entry, portrait = false, controlLabel = "Appearance") {
     if (Array.isArray(entry.images) && entry.images.length) {
       const first = entry.images[0];
       return '<div class="appearance-block">' +
-        '<span class="appearance-label">Appearance</span>' +
+        '<span class="appearance-label">' + escapeHtml(controlLabel) + '</span>' +
         '<div id="appearanceControls" class="appearance-controls"></div>' +
         '</div>' +
-        '<img id="appearanceImage" class="entry-art portrait" src="' +
+        '<img id="appearanceImage" class="entry-art' + (portrait ? ' portrait' : '') + '" src="' +
         escapeHtml(first.file) + '" alt="' +
         escapeHtml(entry.name + " — " + first.label) + '">';
     }
-    return art(entry.image, entry.name, true);
+    return art(entry.image, entry.name, portrait);
   }
+
+  function personArt(entry) { return selectableArt(entry, true, "Appearance"); }
+  function locationArt(entry) { return selectableArt(entry, false, "View"); }
 
   function bindAppearance(entry) {
     if (!Array.isArray(entry.images) || !entry.images.length) return;
@@ -217,7 +220,7 @@
     breadcrumbs.textContent = "Places › " + parent.name + " › " + entry.name;
     contentBody.innerHTML =
       '<article class="entry-page">' +
-        art(entry.image, entry.name) +
+        locationArt(entry) +
         '<div class="entry-copy">' +
           '<div class="entry-kicker">Location</div>' +
           '<h1>' + escapeHtml(entry.name) + '</h1>' +
@@ -231,6 +234,8 @@
           influenceMarkup(entry.influence) +
         '</div>' +
       '</article>';
+
+    bindAppearance(entry);
 
     const residents = document.getElementById("residents");
     entry.residents.map(person).filter(Boolean).forEach(item => {
