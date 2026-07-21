@@ -192,14 +192,16 @@ Before delivering an update verify:
 
 Current Version
 
-v1.5
+v1.6
 
 Completed
 
 - Village of Barovia
 - Tser Pool
 - Vallaki (Arrival)
+- Saint Andral's Church
+- Coffin Maker's Shop
 
 Next Release
 
-v1.6
+v1.7

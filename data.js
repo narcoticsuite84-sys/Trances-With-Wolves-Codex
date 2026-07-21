@@ -81,8 +81,8 @@ window.CODEX_DATA = {
       subtitle: "A sullen mountain burg beside Lake Zarovich",
       image: "assets/vallaki.webp",
       overview: "The woods recede, revealing a sullen mountain burg surrounded by a wooden palisade. Thick fog presses against its weathered walls, as though searching for a way inside, waiting patiently to catch the town asleep.\n\nThe dirt road ends at a pair of sturdy iron gates, where two shadowy guards stand watch behind the bars. Flanking the road outside the gates, a half-dozen pikes bear the severed heads of wolves, their empty eyes serving as a grim warning to any creature that prowls the Svalich Woods.\n\nMore than a dozen ramshackle tents have been erected against the palisade wall. Among them, dozens of ragged, emaciated people mill about or huddle beside low-burning campfires and worn bedrolls, their hollow gazes silently following your approach.\n\nNestled along the shores of Lake Zarovich, the town of Vallaki seems like a safe haven against the evils of the Svalich Woods.",
-      locations: ["arasek-stockyard", "blue-water-inn"],
-      residents: ["gunther-yelena-arasek", "rudolf-van-richten", "arabelle", "danika-dorakova", "urwin-martikov", "brom-bray-martikov", "rictavio", "nikolai-karl-wachter"],
+      locations: ["arasek-stockyard", "blue-water-inn", "saint-andrals-church", "coffin-makers-shop"],
+      residents: ["gunther-yelena-arasek", "rudolf-van-richten", "arabelle", "danika-dorakova", "urwin-martikov", "brom-bray-martikov", "rictavio", "nikolai-karl-wachter", "father-lucian-petrovich", "yeska", "milivoj", "henrik-van-der-voort", "unknown-vampire-spawn"],
       influence: "With the party's aid, Lady Fiona Wachter has secretly seized control of Vallaki, becoming its new Burgomistress."
     }
 
@@ -217,6 +217,27 @@ window.CODEX_DATA = {
       overview: "Grey smoke rises from the chimney of this large, two-storey wooden inn with a stone foundation and sagging tiled roof, upon which several ravens perch. A painted wooden sign above the entrance depicts a blue waterfall.\n\nThe Blue Water Inn is Vallaki's primary gathering place and a welcome sanctuary from the hardships of Barovia. Damp cloaks hang from pegs beneath the entrance portico as locals gather around sturdy wooden tables, sharing mugs of wine and bowls of hearty stew beneath the warm glow of lantern light. Mounted wolf heads decorate the walls, while heavy shutters and crossbars reinforce every window.\n\nLively laughter frequently echoes through the tavern as a flamboyantly dressed Half-Elven Bard captivates patrons with animated stories and theatrical performances.",
       residents: ["danika-dorakova", "urwin-martikov", "brom-bray-martikov", "rictavio", "nikolai-karl-wachter"],
       influence: "The party uncovered the true identity of the flamboyantly dressed Half-Elven Bard, revealing him to be the legendary vampire hunter, Rudolf van Richten."
+    }
+,
+    {
+      id: "saint-andrals-church",
+      settlementId: "vallaki",
+      name: "Saint Andral's Church",
+      subtitle: "The Spiritual Heart of Vallaki",
+      image: "assets/saint-andrals-church.webp",
+      overview: "This slouching, centuries-old stone church stands as the spiritual heart of Vallaki. Its weathered stone walls are lined with cracked stained-glass windows depicting saints of the Morninglord, while a bulging steeple rises above the rear of the building. A wrought-iron fence surrounds a quiet graveyard where thin mists drift between rows of aged gravestones, lending the grounds an air of solemn reverence.\n\nDedicated to the Morninglord and named in honour of Saint Andral, the church was once protected by the saint's sacred bones, which rested beneath the altar. Though modest in appearance, it remains one of the few places in Vallaki where hope endures despite the darkness beyond its walls.\n\nFather Lucian Petrovich oversees the church and works tirelessly to preserve the faith of Vallaki's people. He is assisted by the young altar boy Yeska, while the churchyard is maintained by Milivoj, a strong but troubled youth responsible for tending the grounds and digging graves.",
+      residents: ["father-lucian-petrovich", "yeska", "milivoj"],
+      influence: "The party successfully recovered the stolen bones of Saint Andral, restoring the church's hallowed protection."
+    },
+    {
+      id: "coffin-makers-shop",
+      settlementId: "vallaki",
+      name: "Coffin Maker's Shop",
+      subtitle: "Where Death Finds Its Rest",
+      image: "assets/coffin-makers-shop.webp",
+      overview: "The Coffin Maker's Shop is an uninviting two-storey building situated near Arasek Stockyard, its weathered façade marked only by a sign carved in the shape of a coffin hanging above the front door. Every window is tightly shuttered, shutting out both light and curious eyes, while an unsettling silence hangs over the premises despite the bustle of the nearby street.\n\nOnce a respectable business serving Vallaki's dead, the shop has become increasingly isolated in recent months. Few townsfolk have reason to visit, and fewer still linger outside for long, sensing that something about the place is deeply amiss.",
+      residents: ["henrik-van-der-voort", "unknown-vampire-spawn"],
+      influence: "The party, aided by Father Lucian, successfully repelled a deadly attack by several Vampire Spawn. The battle left the Coffin Maker's Shop heavily damaged. Amid the chaos, Balwarin suffered considerable injuries, mostly from his own allies, before the fighting finally came to an end."
     }
 
 
@@ -605,6 +626,67 @@ window.CODEX_DATA = {
       locationId: "blue-water-inn",
       associates: [],
       influence: ""
+    }
+,
+    {
+      id: "father-lucian-petrovich",
+      name: "Father Lucian Petrovich",
+      subtitle: "Shepherd of Saint Andral's Flock",
+      image: "assets/father-lucian-petrovich.webp",
+      quote: "In these dark times, it's never been more important to be hospitable to others.",
+      overview: "To the world, Father Lucian is a serene, humble, and compassionate priest who is always happy to share a word of praise or a few pearls of wisdom. To those he trusts, Father Lucian is a dedicated and stalwart defender of his community, who nonetheless worries about his ability to keep his congregants safe. Deep down, Father Lucian harbours a twinge of doubt about the Morninglord's providence and power, wondering if Strahd's awakening is a test of Barovians' faith or a sign that the land is forsaken forever.\n\nIn a fight, Father Lucian would prefer to dissuade his attackers, surrendering peacefully if necessary to avoid unnecessary bloodshed. However, if an innocent life or the members of his congregation were threatened, he would fight to the death with a prayer on his lips and peace in his heart.\n\nFather Lucian is a mentor and father figure to the orphan and altar boy Yeska, the employer of the groundskeeper Milivoj, the brother of Baroness Lydia Petrovna, and the distant descendant of Tasha Petrovna, an ancient cleric of the Morninglord.",
+      settlementId: "vallaki",
+      locationId: "saint-andrals-church",
+      associates: ["yeska", "milivoj"],
+      influence: ""
+    },
+    {
+      id: "yeska",
+      name: "Yeska",
+      subtitle: "Saint Andral's Altar Boy",
+      image: "assets/yeska.webp",
+      quote: "Father Lucian says the Morninglord always hears our prayers... even if the answers take a little longer to come.",
+      overview: "Yeska is a kind-hearted and helpful orphan who serves as the altar boy at Saint Andral's Church. Under Father Lucian's patient guidance, he studies the teachings of the Morninglord and does what he can to assist with the church's daily duties. Despite his eagerness to help, Yeska remains emotionally fragile following the deaths of his parents three months ago, and often looks to Father Lucian for the reassurance and stability he can no longer find elsewhere.",
+      settlementId: "vallaki",
+      locationId: "saint-andrals-church",
+      associates: ["father-lucian-petrovich", "milivoj"],
+      influence: ""
+    },
+    {
+      id: "milivoj",
+      name: "Milivoj",
+      subtitle: "The Dutiful Elder Brother",
+      image: "",
+      quote: "Father, are these outsiders bothering you? I can ask them to leave.",
+      overview: "Milivoj is a quiet, gruff, and hardworking groundskeeper employed by Saint Andral's Church. Beneath his stubborn and cynical exterior lies a loving and dedicated elder brother, whose determination to provide for his younger siblings has earned both sympathy for his circumstances and admiration for his selfless resolve.\n\nTo those he trusts, Milivoj is a frustrated and bitter son, struggling to cope with his parents' addiction to dream pastries, and a desperate and confused young man willing to bear any burden to keep his family together.\n\nIn a fight, Milivoj would brandish his shovel in an attempt to intimidate his attacker into backing down, but would quickly surrender if seriously wounded. If defending his siblings, however, Milivoj would fiercely and gladly fight to the death.\n\nMilivoj is employed by Father Lucian Petrovich and is the eldest of nine children born to Oleg and Jarzinka, two Vallakians whose lives have been consumed by dream pastry addiction",
+      settlementId: "vallaki",
+      locationId: "saint-andrals-church",
+      associates: ["father-lucian-petrovich", "yeska", "henrik-van-der-voort"],
+      influence: "The party discovered that Milivoj, desperate to secure funds for his siblings, had been paid and persuaded by Henrik van der Voort to steal the Bones of Saint Andral."
+    },
+    {
+      id: "henrik-van-der-voort",
+      name: "Henrik van der Voort",
+      subtitle: "The Frightened Coffin Maker",
+      image: "",
+      quote: "I-I-I never wanted any of this... I only wanted to be left alone.",
+      overview: "To the world, Henrik van der Voort is a reclusive and timid coffin maker whose dour demeanour and withdrawn nature have made him an object of quiet suspicion amongst Vallaki's townsfolk. Though once respected for his craftsmanship, years of isolation have left him anxious and fearful, preferring the company of his work to that of other people.\n\nTo those he trusts, Henrik is neither malicious nor cruel, but a frightened old man whose terror has driven him to make desperate and deeply regrettable choices.\n\nIn a fight, Henrik would never willingly stand against an armed opponent. He would beg for mercy and surrender immediately.",
+      settlementId: "vallaki",
+      locationId: "coffin-makers-shop",
+      associates: ["milivoj", "unknown-vampire-spawn"],
+      influence: "Henrik played a key role in the theft of St. Andral's bones. Terrified of the consequences of defying Strahd's servants, he allowed fear to overcome his conscience, becoming an unwilling accomplice in a plot that endangered the whole of Vallaki."
+    },
+    {
+      id: "unknown-vampire-spawn",
+      name: "Unknown Vampire Spawn",
+      subtitle: "The Masked Sadist",
+      image: "assets/unknown-vampire-spawn.webp",
+      quote: "I was going to rip your self-righteous holy throat out in front of your adorable little congregation, but I suppose I'll have to settle for decorating the church steps with your friends' heads and entrails instead.",
+      overview: "To the world, the Unknown Vampire Spawn is a manic, impulsive, and deeply unsettling creature whose gleeful fascination with pain and suffering is matched only by her unpredictable nature. Beneath her flirtatious—if deeply eccentric—demeanour lies a sadistic and psychotic mind that delights in provoking fear, discomfort, and agony in equal measure.\n\nIn a fight, the Unknown Vampire Spawn revels in the opportunity to torment her victims, taking obvious pleasure in testing a variety of twisted inventions designed to inflict novel forms of suffering. Should her prey survive long enough to disappoint her, she abandons her creations entirely, tearing into them with her bare hands and teeth in a frenzy of bloodshed.\n\nThe Unknown Vampire Spawn is fanatically loyal to Strahd von Zarovich, carrying out his will with disturbing enthusiasm and treating every act of cruelty as another opportunity to earn his favour.",
+      settlementId: "vallaki",
+      locationId: "coffin-makers-shop",
+      associates: ["henrik-van-der-voort"],
+      influence: "During the battle, the Unknown Vampire Spawn's macabre mask was damaged, revealing that her horns were not merely decorative. Though her plans were thwarted, she escaped to torment the party another day."
     }
 
   ]
