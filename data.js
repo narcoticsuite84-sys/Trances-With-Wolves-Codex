@@ -7,7 +7,7 @@ window.CODEX_DATA = {
         name: "Ottyvar",
         epithet: "Hunters Moon",
         entries: [
-          { date: "23rd Ottyvar", moonPhase: "New Moon", text: "The Village of Barovia was besieged by the undead." },
+          { date: "12th Ottyvar", moonPhase: "Waning Crescent", text: "The Village of Barovia was besieged by the undead." },
           { date: "24th Ottyvar", moonPhase: "Waxing Crescent", text: "The party found themselves trapped within Durst Manor." },
           { date: "25th Ottyvar", moonPhase: "First Quarter", text: "The party escaped Durst Manor with their lives." },
           { date: "26th Ottyvar", moonPhase: "Waxing Gibbous", text: "The party entered the Village of Barovia and met Ismark Kolyanovich and Ireena Kolyana for the first time." },
