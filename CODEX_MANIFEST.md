@@ -192,7 +192,7 @@ Before delivering an update verify:
 
 Current Version
 
-v1.6
+v1.7
 
 Completed
 
@@ -201,7 +201,8 @@ Completed
 - Vallaki (Arrival)
 - Saint Andral's Church
 - Coffin Maker's Shop
+- Player-facing History chronicle
 
 Next Release
 
-v1.7
+To be confirmed

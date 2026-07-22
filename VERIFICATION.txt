@@ -1,0 +1,27 @@
+Trances with Wolves Codex v1.7 — History Migration
+
+Files changed:
+- data.js
+- app.js
+- styles.css
+- CHANGELOG.md
+- CODEX_MANIFEST.md
+- CHECKSUMS.txt
+
+Files intentionally unchanged:
+- index.html
+- README.md
+- .nojekyll
+- all artwork and asset files
+
+Verification completed:
+- data.js JavaScript syntax passed (Node.js --check)
+- app.js JavaScript syntax passed (Node.js --check)
+- History data loaded successfully: 2 months, 15 dated entries
+- All 53 existing entity IDs remain unique
+- All 197 existing repository relationships remain valid
+- All 42 referenced assets exist
+- Required desktop and mobile History controls exist in index.html
+- History route now renders the new data-driven view rather than the placeholder
+- Responsive History rules are present for desktop and narrow mobile layouts
+- Repository checksums regenerated

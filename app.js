@@ -2,7 +2,7 @@
   "use strict";
 
   const D = window.CODEX_DATA;
-  if (!D || !Array.isArray(D.settlements) || !Array.isArray(D.locations) || !Array.isArray(D.people)) {
+  if (!D || !D.history || !Array.isArray(D.history.months) || !Array.isArray(D.settlements) || !Array.isArray(D.locations) || !Array.isArray(D.people)) {
     throw new Error("CODEX_DATA is missing or invalid.");
   }
 
@@ -295,6 +295,41 @@
     }
   }
 
+  function renderHistory() {
+    show(contentView);
+    breadcrumbs.textContent = "History";
+
+    const months = D.history.months.map(month =>
+      '<section class="history-month" aria-labelledby="history-' + escapeHtml(month.id) + '">' +
+        '<header class="history-month-header">' +
+          '<h2 id="history-' + escapeHtml(month.id) + '">' + escapeHtml(month.name) + '</h2>' +
+          '<span>' + escapeHtml(month.epithet) + '</span>' +
+        '</header>' +
+        '<div class="history-entries">' +
+          month.entries.map(entry =>
+            '<article class="history-entry">' +
+              '<div class="history-date">' +
+                '<h3>' + escapeHtml(entry.date) + '</h3>' +
+                '<span>' + escapeHtml(entry.moonPhase) + '</span>' +
+              '</div>' +
+              '<p>' + escapeHtml(entry.text) + '</p>' +
+            '</article>'
+          ).join("") +
+        '</div>' +
+      '</section>'
+    ).join("");
+
+    contentBody.innerHTML =
+      '<article class="history-page">' +
+        '<header class="history-header">' +
+          '<div class="entry-kicker">Campaign Chronicle</div>' +
+          '<h1>History</h1>' +
+          '<p class="history-calendar-note">' + escapeHtml(D.history.calendarNote) + '</p>' +
+        '</header>' +
+        months +
+      '</article>';
+  }
+
   function renderError(message) {
     show(contentView);
     breadcrumbs.textContent = "Codex";
@@ -316,6 +351,7 @@
     else if (view.type === "settlement") renderSettlement(view.id);
     else if (view.type === "location") renderLocation(view.id);
     else if (view.type === "person") renderPerson(view.id);
+    else if (view.type === "history") renderHistory();
     else if (view.type === "empty") empty(view.title);
   }
 
@@ -375,8 +411,8 @@
       empty("Factions");
     } else if (name === "history") {
       stack.length = 0;
-      stack.push({ type: "empty", title: "History" });
-      empty("History");
+      stack.push({ type: "history" });
+      renderHistory();
     } else if (name === "search") {
       openSearch();
     }

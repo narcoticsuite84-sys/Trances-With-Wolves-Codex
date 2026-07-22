@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.7
+
+Added
+
+- Player-facing History chronicle
+- Barovian dates, month names, and lunar phases
+- Campaign events from 23rd Ottyvar through 9th Neyvar
+
+Repository
+
+- Replaced the History placeholder with a data-driven History view
+- Added responsive History styling for desktop and mobile
+
 ## v1.6
 
 Added

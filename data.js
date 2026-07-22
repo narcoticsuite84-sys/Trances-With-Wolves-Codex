@@ -1,4 +1,38 @@
 window.CODEX_DATA = {
+  history: {
+    calendarNote: "Barovia follows a twenty-eight-day calendar. Unlike most worlds, its lunar cycle lasts just fourteen days, with the moon completing a full cycle every two weeks.",
+    months: [
+      {
+        id: "ottyvar",
+        name: "Ottyvar",
+        epithet: "Hunters Moon",
+        entries: [
+          { date: "23rd Ottyvar", moonPhase: "New Moon", text: "The Village of Barovia was besieged by the undead." },
+          { date: "24th Ottyvar", moonPhase: "Waxing Crescent", text: "The party found themselves trapped within Durst Manor." },
+          { date: "25th Ottyvar", moonPhase: "First Quarter", text: "The party escaped Durst Manor with their lives." },
+          { date: "26th Ottyvar", moonPhase: "Waxing Gibbous", text: "The party entered the Village of Barovia and met Ismark Kolyanovich and Ireena Kolyana for the first time." },
+          { date: "27th Ottyvar", moonPhase: "Full Moon", text: "The late Kolyan Indirovich was laid to rest, and the matter concerning Doru was finally resolved." },
+          { date: "28th Ottyvar", moonPhase: "Waning Gibbous", text: "The party encountered Strahd von Zarovich for the first time before travelling to the Tser Pool Encampment, where they met the Vistani and Madame Eva." }
+        ]
+      },
+      {
+        id: "neyvar",
+        name: "Neyvar",
+        epithet: "Rot Moon",
+        entries: [
+          { date: "1st Neyvar", moonPhase: "New Moon", text: "The party witnessed the March of the Dead before receiving a Tarokka reading from Madame Eva." },
+          { date: "2nd Neyvar", moonPhase: "Waxing Crescent", text: "The party arrived in Vallaki, where they quickly discovered that all was not well. During the night, the Bones of Saint Andral were stolen." },
+          { date: "3rd Neyvar", moonPhase: "First Quarter", text: "Vampire Spawn were defeated and the Bones of Saint Andral were recovered. The party met other Vistani and Dusk Elves for the first time. Following the trail of clues, they quickly found Arabelle and uncovered Rudolf van Richten. Lillith was badly beaten by a suspected lycan during the journey. Later, an invitation was received to dine with Lady Fiona Wachter. During the night, Valendir disappeared and was discovered the following morning covered in blood." },
+          { date: "4th Neyvar", moonPhase: "Waxing Gibbous", text: "Arabelle's name day was celebrated with gifts, while Blinsky was commissioned to craft silver dentures to replace Lillith's missing teeth. Later, the party shopped for formal attire before meeting Lady Fiona Wachter and attending dinner at Wachterhaus." },
+          { date: "5th Neyvar", moonPhase: "Full Moon", text: "Things did not quite go to plan, but Izek was defeated before noon. By evening, Lady Wachter had assumed power. During the night, Erasmus van Richten left Balwarin a desperate message pleading for help." },
+          { date: "6th Neyvar", moonPhase: "Waning Gibbous", text: "Refugees were moved into the town square that morning. The party travelled to Krezk in an attempt to cure Laeth before doubling back to the marshes, where they encountered Baba Lysaga and learned more about the scry spell." },
+          { date: "7th Neyvar", moonPhase: "Last Quarter", text: "Laeth was cured, while Lillith began seeing disturbing visions. The party left Krezk and travelled to Argynvostholt for the first time, where they met Sir Godfrey Gwilym. After marching into a nest of Phase Spiders and narrowly surviving, they recovered two vials of Phase Spider venom. The Feast of Saint Andral took place at sundown." },
+          { date: "8th Neyvar", moonPhase: "Waning Crescent", text: "The party confronted the Hag Coven before travelling into the Ethereal Plane, where they defeated the vengeful spirit of Leo Dilisnya. Stella's soul was restored, Balwarin recovered the Tome, and the party rested during the early hours of the following morning." },
+          { date: "9th Neyvar", moonPhase: "New Moon", text: "The current day." }
+        ]
+      }
+    ]
+  },
   settlements: [
     {
       id: "durst-manor",
